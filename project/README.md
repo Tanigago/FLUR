@@ -11,6 +11,7 @@ Esta aplicación te ahorrará tiempo, evitará ese rato parado delante del zapat
 Personas, independientemente de su sexo, de entre 25 y 60 años con un nivel económico medio y medio-alto.
 
 ## __Mockups
+*La aplicación en la versión de móvil solo se mostrará de manera vertical.*
 ![MobileFirst](./img/MobileFirst_1.jpg)
 ![MobileFirst](./img/MobileFirst_2.jpg)
 ![MobileFirst](./img/MobileFirst_3.jpg)
