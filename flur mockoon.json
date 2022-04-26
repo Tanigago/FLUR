@@ -1,0 +1,442 @@
+{
+  "uuid": "30d440ea-09bc-4106-acf7-6d12fca24762",
+  "lastMigration": 19,
+  "name": "FLUR API (copy)",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3002,
+  "hostname": "0.0.0.0",
+  "routes": [
+    {
+      "uuid": "d1421219-1005-4556-86d9-98221552e87c",
+      "documentation": "Obtener auth para inicio de sesión.",
+      "method": "get",
+      "endpoint": "login/",
+      "responses": [
+        {
+          "uuid": "d8851a9c-44b9-401a-aaf2-bb29c64fea30",
+          "body": "",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "b564caec-6a6a-44d8-9c69-9b8650a2736c",
+      "documentation": "Petición para incio de sesión.",
+      "method": "post",
+      "endpoint": "login/",
+      "responses": [
+        {
+          "uuid": "b8a22505-6f1f-470a-ac14-c0b0bd128866",
+          "body": "{\r\n  \"userId\": 1649242890765\r\n\t\"userName\": \"Burkina\",\r\n\t\"password\": \"123.456\"\r\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "76437e2e-f77b-496a-a4c4-9dbd8e274857",
+      "documentation": "ADM - Para obtener el listado de usuarios.",
+      "method": "get",
+      "endpoint": "users/",
+      "responses": [
+        {
+          "uuid": "aaa6c91f-0c62-4e45-aa55-fd0ba4ce2853",
+          "body": "[\n  {\n\t\"userName\": \"Kenia\",\n\t\"password\": \"123.456\"\n  },\n  \n  {\n\t\"userName\": \"Uganda\",\n\t\"password\": \"123.456\"\n  },\n  \n  {\n\t\"userName\": \"Luanda\",\n\t\"password\": \"123.456\"\n  },\n  \n  {\n\t\"userName\": \"Angola\",\n\t\"password\": \"123.456\"\n  },\n  \n  {\n\t\"userName\": \"Burkina\",\n\t\"password\": \"123.456\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "15f6cd81-cb76-4092-a3ab-46aceb181109",
+      "documentation": "Obtener datos usuario.",
+      "method": "get",
+      "endpoint": "user/",
+      "responses": [
+        {
+          "uuid": "3e51263e-37e0-47e1-9500-faa4a2e1076c",
+          "body": "{\n\"userName\": \"Uganda\",\n\"password\": \"123.456\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "673ddd4f-c2aa-4475-82d1-d9d4d1ef4509",
+      "documentation": "Crear usuario.",
+      "method": "post",
+      "endpoint": "user/",
+      "responses": [
+        {
+          "uuid": "ffbbc443-be31-4cbf-8b8f-fee5786813ba",
+          "body": "{\n\"userName\": \"\",\n\"password\": \"\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "bd878d2e-42b8-43c1-a5c9-7c8ff07360ea",
+      "documentation": "Modificar datos de usuario.",
+      "method": "put",
+      "endpoint": "user/",
+      "responses": [
+        {
+          "uuid": "7f1689e3-3f96-445b-b368-9d99ddd4a5c0",
+          "body": "{\n\"userName\": \"Lisboa\",\n\"password\": \"123.456\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "53f6c0bd-8916-40d6-8da9-b893b5f856d4",
+      "documentation": "Eliminar usuario.",
+      "method": "delete",
+      "endpoint": "user/",
+      "responses": [
+        {
+          "uuid": "7d696c67-bdb2-4e1d-8194-d3c9b817e671",
+          "body": "Usuario eliminado.",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "f3cbd055-78e3-45df-a491-ae5ca7613869",
+      "documentation": "Obtener datos de una colección.",
+      "method": "get",
+      "endpoint": "collection/",
+      "responses": [
+        {
+          "uuid": "613f9cc6-f2bd-4194-aa94-ab306e34edd4",
+          "body": "[\n  {\n    \"type\": \"img\",\n    \"url\": \"img/gallery/wa16022022163422.jpg\" \n  },\n  {\n    \"type\": \"img\",\n    \"url\": \"img/camera/16022022141908.jpg\"\n  },\n  {\n    \"button\" //Botón para añadir item a la colección.\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "c69be5cd-a854-4d1f-a4b8-7e7505750340",
+      "documentation": "Crear una nueva colección.",
+      "method": "post",
+      "endpoint": "collection/",
+      "responses": [
+        {
+          "uuid": "b47167e8-d800-44b7-99f6-d9941b9c5ae8",
+          "body": "{\n  \"type\": \"img\",\n  \"url\": \"img/gallery/\" \n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "504eed44-69b1-45b4-a56a-9faaca64693a",
+      "documentation": "Editar una colección.",
+      "method": "put",
+      "endpoint": "collection/",
+      "responses": [
+        {
+          "uuid": "dcde3fd5-dd43-4a9a-9c21-6b784a24a286",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "15a53f34-3659-40a1-bdb5-af637d822ac0",
+      "documentation": "Eliminar una colección.",
+      "method": "delete",
+      "endpoint": "collection/",
+      "responses": [
+        {
+          "uuid": "2eedfc6a-ae75-4027-847d-146eed3cb6eb",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "f732ec54-3ba8-457f-bf0f-6da468798063",
+      "documentation": "Obtener datos de un item.",
+      "method": "get",
+      "endpoint": "item/",
+      "responses": [
+        {
+          "uuid": "57a751d9-3659-4b99-8abb-a46e58370b55",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "a77fa837-64a1-49a6-981e-082ceb30cec1",
+      "documentation": "Crear un item.",
+      "method": "post",
+      "endpoint": "item/",
+      "responses": [
+        {
+          "uuid": "757c4343-6eff-47c4-9b4d-fb80fd2799f2",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "531444dd-5008-47d7-a913-651a349b0f48",
+      "documentation": "Editar un item.",
+      "method": "put",
+      "endpoint": "item/",
+      "responses": [
+        {
+          "uuid": "7eb80db9-d47b-4d9d-8a60-0df70869301e",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "412175ca-2794-4aa6-b981-8cbcd507fa20",
+      "documentation": "Eliminar un item.",
+      "method": "delete",
+      "endpoint": "item/",
+      "responses": [
+        {
+          "uuid": "ad126980-cc75-4b38-a7c9-d8c753ee1734",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    },
+    {
+      "uuid": "990182cd-7917-4fc4-a070-c7460ef1626e",
+      "documentation": "Editar perfil de usuario.",
+      "method": "put",
+      "endpoint": "profile/",
+      "responses": [
+        {
+          "uuid": "2410ba5f-c41e-486b-92dc-36030ec696c4",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "filePath": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false
+        }
+      ],
+      "enabled": true,
+      "randomResponse": false,
+      "sequentialResponse": false
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ]
+}
