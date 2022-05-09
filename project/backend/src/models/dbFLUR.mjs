@@ -1,11 +1,13 @@
 import sqlite3 from 'sqlite3';
 
+
 export const db = new sqlite3.Database('./FLUR.db', (err)=> {
     if (err) {
         console.error(err.flur);
     }
     console.log('Conectado a la base de datos de FLUR.');
 });
+
 
 db.run(`
     CREATE TABLE
@@ -24,7 +26,8 @@ db.run(`
         IF NOT EXISTS
         collections(
             idCollection INTEGRER PRIMARY KEY AUTO_INCREMENT,
-            nameCollection TEXT NOT NULL
+            nameCollection TEXT NOT NULL,
+            FOREIGN KEY(idUser) references users(idUser)
         )
 `);
 
@@ -33,7 +36,8 @@ db.run(`
         IF NOT EXISTS
         shoes(
             idShoes INTEGRER PRIMARY KEY AUTO_INCREMENT,
-            photoShoes TEXT NOT NULL
+            photoShoes TEXT NOT NULL,
+            FOREIGN KEY(idUser) references users(idUser)
         )
 `);
 
