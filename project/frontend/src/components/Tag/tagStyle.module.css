@@ -1,0 +1,17 @@
+li{
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    background-color: rgb(243, 243, 243);
+}
+
+p{
+    text-decoration: none;
+}
+
+button{
+    background: none;
+    border-inline: none;
+    border-block: none;
+    padding-left: 30px;
+}
