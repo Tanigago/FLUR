@@ -1,8 +1,9 @@
 li{
     list-style: none;
-    display: flex;
+    display: inline-flex;
     justify-content: flex-start;
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(228, 228, 228);
+    padding-left: 10px;
 }
 
 p{

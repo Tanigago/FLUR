@@ -1,0 +1,20 @@
+.collectionSquare{
+    border-style: solid;
+    border-color: black;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.collectionName{
+    align-self: flex-start;
+    order: 1;
+    padding-left: 10px;
+}
+
+.collectionCounter{
+    align-self: flex-end;
+    order: 2;
+    padding-right: 5px;
+}
