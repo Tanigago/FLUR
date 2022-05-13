@@ -1,5 +1,6 @@
 import './App.css';
 import './components/MultiSquare/CollectionSquare/collectionSquare.module.css';
+import './components/MultiSquare/NewSquare/newSquarestyle.module.css';
 
 //import { Routes, Route } from 'react-router-dom';
 
@@ -41,7 +42,13 @@ function App() {
                     </div>
                   </MultiSquare>
         )
+      
       }
+    <h1>Componente NewSquare</h1>
+
+      <MultiSquare>
+        <button className='buttonNewSquare'>+</button>
+      </MultiSquare>
     </>
   );
 }
