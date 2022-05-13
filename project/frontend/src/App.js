@@ -1,5 +1,5 @@
 import './App.css';
-import './components/MultiSquare/collectionSquare.module.css';
+import './components/MultiSquare/CollectionSquare/collectionSquare.module.css';
 
 //import { Routes, Route } from 'react-router-dom';
 
@@ -18,10 +18,13 @@ const tagsMockup = [
 function App() {
   return (
     <>
+    <h1>Componente Tag</h1>
       <Tag tagPath="/ruta-de-coleccion" tagText="Nombre de etiqueta"/>
-
+    
+    <h1>Componente TagList</h1>
       <TagsList tagsArray = {tagsMockup}/>
-
+    
+    <h1>Componente MultiSquare</h1>
       <MultiSquare>
         <div className='collectionSquare'>
           <span className='collectionName'><Tag tagPath="/ruta-de-coleccion" tagText="Nombre de etiqueta"/></span>

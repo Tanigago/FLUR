@@ -4,6 +4,7 @@ li{
     justify-content: flex-start;
     background-color: rgb(228, 228, 228);
     padding-left: 10px;
+    align-items: center;
 }
 
 p{
