@@ -1,19 +1,22 @@
-li{
+li {
     list-style: none;
     display: inline-flex;
     justify-content: flex-start;
-    background-color: rgb(228, 228, 228);
     padding-left: 10px;
     align-items: center;
+    height: 30px;
+    margin-bottom: 10px;
+    border-color: black;
+    border-style: solid;
 }
 
-p{
-    text-decoration: none;
-}
-
-button{
+button {
     background: none;
     border-inline: none;
     border-block: none;
     padding-left: 30px;
+}
+
+p {
+    text-decoration: none;
 }

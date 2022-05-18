@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
+import TagsList from "../tagsList/TagsList";
 
-import "./tagStyle.module.css";
+import styles from './tagStyle.module.css';
 
 function Tag ({tagPath, tagText, tagDelbutton}){
     return(
-        <div>
-            <li>
+        <div className={styles.tags}>
+            <li className={styles.listElements}>
                 <Link to={tagPath}>
-                <p>{tagText}</p>
+                <p className={styles.etiqueta}>{tagText}</p>
                 </Link>
-                <button className={tagDelbutton && "showTagDelbutton"}>X</button>
+                <button className={tagDelbutton && styles.showTagDelbutton}>X</button>
             </li>
         </div>
     )
