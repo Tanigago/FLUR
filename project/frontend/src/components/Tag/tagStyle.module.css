@@ -1,4 +1,4 @@
-li {
+.etiqueta {
     list-style: none;
     display: inline-flex;
     justify-content: flex-start;

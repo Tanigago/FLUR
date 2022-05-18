@@ -1,13 +1,11 @@
 import './App.css';
 
-//import { Routes, Route } from 'react-router-dom';
-
+import { Link, Routes, Route } from 'react-router-dom';
 import Tag from './components/Tag/Tag';
 import TagsList from './components/tagsList/TagsList.jsx';
 import MultiSquare from './components/MultiSquare/MultiSquare';
 import NewSquare from './components/MultiSquare/NewSquare/NewSquare';
 import CollectionSquare from './components/MultiSquare/CollectionSquare/CollectionSquare';
-import { Link } from 'react-router-dom';
 import EditSquare from './components/MultiSquare/EditSquare/EditSquare';
 
 const tagsMockup = [
@@ -52,8 +50,20 @@ function App() {
       <MultiSquare>
         <EditSquare/>
       </MultiSquare>
+
     </>
   );
 }
 
 export default App;
+
+
+/*
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/news/" element={<News/>}>
+          <Route path=":id" element={<News/>}/>
+        </Route>
+        <Route path="/shop/" element={<Shop/>}/>
+      </Routes>
+*/
