@@ -10,7 +10,7 @@ function Tag ({tagPath, tagText, tagDelbutton}){
                 <Link to={tagPath}>
                 <p className={styles.etiqueta}>{tagText}</p>
                 </Link>
-                <button className={tagDelbutton && styles.showTagDelbutton}>X</button>
+                <button className={tagDelbutton || styles.hideTagDelbutton}>X</button>
             </li>
         </>
     )

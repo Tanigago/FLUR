@@ -7,11 +7,15 @@ import MultiSquare from './components/MultiSquare/MultiSquare';
 import NewSquare from './components/MultiSquare/NewSquare/NewSquare';
 import CollectionSquare from './components/MultiSquare/CollectionSquare/CollectionSquare';
 import EditSquare from './components/MultiSquare/EditSquare/EditSquare';
+import EditSquare1 from './components/MultiSquare/EditSquare1/EditSquare1';
+import ItemSquare from './components/MultiSquare/ItemSquare/ItemSquare';
+import MenuBottom from './components/MenuBottom/MenuBottom';
 
 const tagsMockup = [
-  { path: "/verano", name: "Verano", delbutton: false },
-  { path: "/festival", name: "Festival", delbutton: false },
-  { path: "/playa", name: "Playa", delbutton: false }
+  { path: "/verano", name: "Verano", delbutton: false, count: 0 },
+  { path: "/festival", name: "Festival", delbutton: true, count: 5 },
+  { path: "/playa", name: "Playa", delbutton: false, count: 666 },
+  { path: "/pijamaparty", name: "Pijama", delbutton: false, count: 1 }
 ]
 
 
@@ -24,18 +28,15 @@ function App() {
       <h1>Componente TagList</h1>
       <TagsList tagsArray={tagsMockup} />
 
-      <h1>Componente MultiSquare</h1>
+      <h1>Componente MultiSquare/CollectionSquare</h1>
       <MultiSquare>
-        <CollectionSquare/>
+        <CollectionSquare  tagPath={"tusmuertos"} tagText={"Si, claro"} count={42} pluralize={true}/>
       </MultiSquare>
 
       {
         tagsMockup.map(
           (item, idx) => <MultiSquare>
-            <div className='collectionSquare'>
-              <p className='collectionName'>{item.name}</p>
-              <p className='collectionCounter'>{idx} items</p>
-            </div>
+            <CollectionSquare  tagPath={item.path} tagText={item.name} count={item.count} pluralize={item.count > 1 || item.count===0}/>
           </MultiSquare>
         )
 
@@ -48,8 +49,24 @@ function App() {
 
       <h1>Componente EditSquare</h1>
       <MultiSquare>
+        <EditSquare1/>
+      </MultiSquare>
+      
+      <MultiSquare>
         <EditSquare/>
       </MultiSquare>
+
+      <h1>Componente ItemSquare</h1>
+      <MultiSquare>
+        <ItemSquare/>
+      </MultiSquare>
+
+      <h1>Componente MenuBottom</h1>
+      <MenuBottom/>
+
+      <h1>Componente MenuTop</h1>
+
+
 
     </>
   );

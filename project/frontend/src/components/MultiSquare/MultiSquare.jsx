@@ -1,7 +1,7 @@
 function MultiSquare ({children, action}) {
     
     return (
-        <button onClick={action}>
+        <button>
             {children}
         </button>
     )

@@ -1,16 +1,18 @@
-import styles from './collectionSquare.module.css'
-import Tag from '../../Tag/Tag'
+import styles from './collectionSquare.module.css';
 
-function CollectionSquare() {
+import { Link } from 'react-router-dom';
+
+function CollectionSquare({ tagPath, tagText, count, pluralize }) {
 
     return (
-        <div className={styles.collectionSquare}>
-            <span className={styles.collectionName}>
-                <Tag tagPath="/ruta-de-coleccion" tagText="Nombre de etiqueta" />
-            </span>
-            <p className={styles.collectionCounter}>1 items</p>
+        <div className={styles.borderSquare}>
+            <Link to={tagPath}>
+            <p className={styles.collectionName}>{tagText}</p>
+            <p className={styles.collectionCounter}>{count} item{pluralize && 's'}</p>
+            </Link>
         </div>
     )
 }
 
 export default CollectionSquare
+

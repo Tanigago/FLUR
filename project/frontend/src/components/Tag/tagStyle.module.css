@@ -1,22 +1,23 @@
-.etiqueta {
+.listElements {
     list-style: none;
     display: inline-flex;
+    flex-direction: row;
+}
+
+.etiqueta{
+    border-style: solid;
+    border-color: black;
     justify-content: flex-start;
     padding-left: 10px;
-    align-items: center;
-    height: 30px;
-    margin-bottom: 10px;
-    border-color: black;
-    border-style: solid;
+    padding-right: 40px;
 }
 
 button {
     background: none;
     border-inline: none;
-    border-block: none;
-    padding-left: 30px;
+    border-block: none;    
 }
 
-p {
-    text-decoration: none;
+.hideTagDelbutton {
+    visibility: hidden;
 }
