@@ -1,25 +1,30 @@
 .navBottom {
     background-color: rgb(219, 219, 219);
-    height: 80px;
+    height: 70px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .gocollections {
+    height: 80px;
+    width: 80px;
     
 }
 
 .goNewPhoto {
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
+    border-color: black;
+    border: solid;
     background-color: rgb(240, 240, 240);
     font-size: 40pt;
-    color: rgb(202, 202, 202);
-
 }
 
 .goProfile {
-    
+    height: 80px;
+    width: 80px;
+
 }

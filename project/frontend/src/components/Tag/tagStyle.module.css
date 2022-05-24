@@ -2,20 +2,26 @@
     list-style: none;
     display: inline-flex;
     flex-direction: row;
+    border-style: solid;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    height: 30px;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: fit-content;
 }
 
 .etiqueta{
-    border-style: solid;
-    border-color: black;
-    justify-content: flex-start;
-    padding-left: 10px;
-    padding-right: 40px;
+    color: black;
 }
 
-button {
+.showtagDelbutton {
     background: none;
     border-inline: none;
-    border-block: none;    
+    border-block: none;
+    padding-left: 20px;   
 }
 
 .hideTagDelbutton {

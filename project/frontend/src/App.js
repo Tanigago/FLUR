@@ -7,7 +7,6 @@ import MultiSquare from './components/MultiSquare/MultiSquare';
 import NewSquare from './components/MultiSquare/NewSquare/NewSquare';
 import CollectionSquare from './components/MultiSquare/CollectionSquare/CollectionSquare';
 import EditSquare from './components/MultiSquare/EditSquare/EditSquare';
-import EditSquare1 from './components/MultiSquare/EditSquare1/EditSquare1';
 import ItemSquare from './components/MultiSquare/ItemSquare/ItemSquare';
 import MenuBottom from './components/MenuBottom/MenuBottom';
 
@@ -48,10 +47,6 @@ function App() {
       </MultiSquare>
 
       <h1>Componente EditSquare</h1>
-      <MultiSquare>
-        <EditSquare1/>
-      </MultiSquare>
-      
       <MultiSquare>
         <EditSquare/>
       </MultiSquare>

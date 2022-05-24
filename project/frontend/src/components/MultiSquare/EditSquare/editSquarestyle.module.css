@@ -14,7 +14,6 @@
 
 .removeButton {
     align-self: flex-end;
-    order: 1;
     padding-right: 5px;
 }
 
@@ -23,6 +22,7 @@
     align-items: center;
     text-decoration: underline;
     padding-top: 10px;
+    color: black;
 }
 
 .backImg {

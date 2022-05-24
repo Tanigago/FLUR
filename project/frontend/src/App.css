@@ -2,3 +2,7 @@ h1{
     font-size: 14pt;
     background-color: antiquewhite;
 }
+a:link, a:visited, a:active {
+    text-decoration:none;
+    color: inherit;
+}

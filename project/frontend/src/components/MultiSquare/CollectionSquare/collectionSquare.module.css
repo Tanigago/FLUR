@@ -5,6 +5,7 @@
     height: 100px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .collectionName{
@@ -17,4 +18,5 @@
     align-self: flex-end;
     order: 2;
     padding-right: 5px;
+    padding-top: 18pt;
 }
