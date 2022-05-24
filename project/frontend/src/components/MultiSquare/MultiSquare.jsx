@@ -1,7 +1,9 @@
-function MultiSquare ({children, action}) {
+import styles from './multiSquareStyle.module.css';
+
+function MultiSquare ({children}) {
     
     return (
-        <button>
+        <button className={styles.clickme}>
             {children}
         </button>
     )

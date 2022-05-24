@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import styles from './menuBottomStyle.module.css';
 
-import collectionspng from './foldericon.png';
-import profilepng from './profileicon.png';
+import iconfolder from './iconfolder.png';
+import iconprofile from './iconprofile.png';
 
 
 function MenuBottom() {
@@ -11,7 +11,7 @@ function MenuBottom() {
         <div className={styles.navBottom}>
             <Link to="/">
                 <button className={styles.gocollections}>
-                    <img src={collectionspng} width={40} height={40} alt='Collections' />
+                    <img src={iconfolder} width={40} height={40} alt='Collections' />
                 </button>
             </Link>
 
@@ -21,7 +21,7 @@ function MenuBottom() {
 
             <Link to="/">
                 <button className={styles.goProfile}>
-                    <img src={profilepng} width={40} height={40} alt='Profile' />
+                    <img src={iconprofile} width={40} height={40} alt='Profile' />
                 </button>
             </Link>
         </div>

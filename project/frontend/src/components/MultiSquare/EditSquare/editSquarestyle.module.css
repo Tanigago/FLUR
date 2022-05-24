@@ -1,5 +1,8 @@
 .bigBox{
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .EditSquare {
     border-style: solid;
@@ -15,6 +18,10 @@
 .removeButton {
     align-self: flex-end;
     padding-right: 5px;
+    background: none;
+    border-inline: none;
+    border-block: none;
+    font-size: 12pt;
 }
 
 .editButton {
@@ -28,4 +35,9 @@
 .backImg {
     opacity: 0.3;
     position: absolute;
+}
+
+.backgroundPhoto{
+    object-fit: cover;
+    object-position: center;
 }

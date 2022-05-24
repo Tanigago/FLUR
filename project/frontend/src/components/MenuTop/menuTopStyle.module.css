@@ -1,0 +1,23 @@
+.menuhori {
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goback {
+    background: none;
+    border-inline: none;
+    border-block: none;
+}
+
+.gomenuvert {
+    background: none;
+    border-inline: none;
+    border-block: none;
+}
+
+.titlePage{
+    font-weight: bold;
+}

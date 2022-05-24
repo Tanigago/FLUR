@@ -7,7 +7,7 @@ function ItemSquare () {
     return(
         <Link to="/">
             <div className={styles.itemSquare}>
-                <img src={panda} width={100} height={100} alt='Panda Rojo' />
+                <img className={styles.backgroundPhoto} src={panda} width={100} height={100} alt='Panda Rojo' />
             </div>
         </Link>
     )

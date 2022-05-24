@@ -9,7 +9,7 @@ function EditSquare(tagPath) {
          
         <div className={styles.bigBox}>        
             <div className={styles.backImg}>
-                <img src={panda} width={105} height={105} alt='Panda Rojo' />
+                <img className={styles.backgroundPhoto} src={panda} width={100} height={100} alt='Panda Rojo' />
             </div>
             
             <div className={styles.EditSquare}>

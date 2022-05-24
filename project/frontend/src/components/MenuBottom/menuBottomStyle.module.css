@@ -1,5 +1,5 @@
 .navBottom {
-    background-color: rgb(219, 219, 219);
+    background-color: rgb(236, 236, 236);
     height: 70px;
     display: flex;
     flex-direction: row;
@@ -10,21 +10,26 @@
 .gocollections {
     height: 80px;
     width: 80px;
+    background: none;
+    border-inline: none;
+    border-block: none;
     
 }
 
 .goNewPhoto {
-    height: 80px;
-    width: 80px;
+    height: 40px;
+    width: 40px;
     border-radius: 50%;
     border-color: black;
     border: solid;
-    background-color: rgb(240, 240, 240);
-    font-size: 40pt;
+    font-size: 18pt;
+    font-weight: bold;
 }
 
 .goProfile {
     height: 80px;
     width: 80px;
-
+    background: none;
+    border-inline: none;
+    border-block: none;
 }
