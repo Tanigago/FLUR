@@ -2,7 +2,7 @@ import styles from './collectionSquare.module.css';
 
 import { Link } from 'react-router-dom';
 
-function CollectionSquare({ tagPath, tagText, count, pluralize }) {
+function CollectionSquare({ tagPath="/verano", tagText="Verano", count=5, pluralize }) {
 
     return (
         <Link to={tagPath}>
@@ -17,4 +17,3 @@ function CollectionSquare({ tagPath, tagText, count, pluralize }) {
 }
 
 export default CollectionSquare
-

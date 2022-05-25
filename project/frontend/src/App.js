@@ -48,7 +48,7 @@ function App() {
         </h1>
         <nav>
           <Link to={"/"}><button>Home</button></Link>
-          <Link to={"/start/"}><button>Start</button></Link>
+          <Link to={"/addtocollection/"}><button>AddtoCollection</button></Link>
           <Link to={"/collection/"}><button>Collection</button></Link>
           <Link to={"/collections/"}><button>Collections</button></Link>
           <Link to={"/editCollection/"}><button>EditCollection</button></Link>
@@ -57,13 +57,14 @@ function App() {
           <Link to={"/newCollection/"}><button>NewCollection</button></Link>
           <Link to={"/profile/"}><button>Profile</button></Link>
           <Link to={"/register/"}><button>Register</button></Link>
+          <Link to={"/start/"}><button>Start</button></Link>
           <Link to={"/today/"}><button>Today</button></Link>
         </nav>
       </header>
 
       <Routes>
         <Route path='/home/' element={<Home/>}/>
-        <Route path='/start/' element={<Start/>}/>
+        <Route path='/addtocollection/' element={<AddtoCollection/>}/>
         <Route path='/collection/' element={<Collection/>}/>
         <Route path='/collections/' element={<Collections/>}/>
         <Route path='/editCollection/' element={<EditCollection/>}/>
@@ -72,8 +73,10 @@ function App() {
         <Route path='/newCollection/' element={<NewCollection/>}/>
         <Route path='/profile/' element={<Profile/>}/>
         <Route path='/register/' element={<Register/>}/>
+        <Route path='/start/' element={<Start/>}/>
         <Route path='/today/' element={<Today/>}/>
       </Routes>
+      
     </div>
   );
 }
