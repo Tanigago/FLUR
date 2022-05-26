@@ -1,9 +1,8 @@
 .bigBox{
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-bottom: 10px;
 }
+
 .EditSquare {
     border-style: solid;
     border-color: black;
@@ -13,6 +12,7 @@
     flex-direction: column;
     top: 0;
     left: 0;
+    align-items: center;
 }
 
 .removeButton {
@@ -22,14 +22,17 @@
     border-inline: none;
     border-block: none;
     font-size: 12pt;
+    position: absolute;
+    z-index: 2;
 }
 
 .editButton {
     order: 2;
-    align-items: center;
     text-decoration: underline;
-    padding-top: 10px;
+    padding-top: 20px;
     color: black;
+    position: relative;
+    z-index: 3;
 }
 
 .backImg {
@@ -40,4 +43,5 @@
 .backgroundPhoto{
     object-fit: cover;
     object-position: center;
+    align-content:stretch;
 }

@@ -5,7 +5,9 @@
     height: 100px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    background-color: rgb(255, 218, 175);
 }
 
 .collectionName{

@@ -1,8 +1,8 @@
 .buttonNewSquare {
     border-style: solid;
     border-color: black;
-    width: 100px;
-    height: 100px;
+    width: 106px;
+    height: 106px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

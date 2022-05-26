@@ -5,9 +5,13 @@ export const Context = createContext();
 export function ContextProvider ( {children} ) {
 
     const store = useState({
-        id: 0,
-        password: "",
-        token: "",
+        calzado: [],
+        tagtext: "Verano",
+        tagpath: "/verano/",
+        count: 12,
+        pluralize: true,
+        tagdelbutton: true,
+        
     });
 
     return (

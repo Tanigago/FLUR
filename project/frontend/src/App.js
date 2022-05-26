@@ -14,6 +14,8 @@ import Profile from './views/Profile/Profile';
 import Register from './views/Register/Register';
 import Start from './views/Start/Start';
 import Today from './views/Today/Today';
+import MenuBottom from './components/MenuBottom/MenuBottom';
+import MenuTop from './components/MenuTop/MenuTop';
 
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 
@@ -62,11 +64,13 @@ function App() {
         </nav>
       </header>
 
+      <MenuTop insitu={"Verano"} goback={"Home"}/>
+
       <Routes>
         <Route path='/home/' element={<Home/>}/>
         <Route path='/addtocollection/' element={<AddtoCollection/>}/>
         <Route path='/collection/' element={<Collection/>}/>
-        <Route path='/collections/' element={<Collections/>}/>
+        <Route path='/collections/' element={<Collections tagpath={"/danielote/"} tagtext={"Cosa"} count={5} pluralize={true}/>}/>
         <Route path='/editCollection/' element={<EditCollection/>}/>
         <Route path='/editItem/' element={<EditItem/>}/>
         <Route path='/login/' element={<Login/>}/>
@@ -76,7 +80,9 @@ function App() {
         <Route path='/start/' element={<Start/>}/>
         <Route path='/today/' element={<Today/>}/>
       </Routes>
-      
+
+      <MenuBottom/>
+
     </div>
   );
 }
