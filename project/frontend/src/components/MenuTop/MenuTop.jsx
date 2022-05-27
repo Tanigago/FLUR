@@ -14,7 +14,7 @@ function MenuTop({goback , insitu}) {
                 </button>
             </Link>
             <p className={styles.titlePage}>{insitu}</p>
-            <Link to="/">
+            <Link to="http://localhost:3000/">
                 <button className={styles.gomenuvert}>
                     <img src={iconmenuvert96} width={25} height={25} alt='Menu' />
                 </button>

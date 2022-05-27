@@ -49,7 +49,7 @@ function App() {
           FLUR
         </h1>
         <nav>
-          <Link to={"/"}><button>Home</button></Link>
+          <Link to={"/home/"}><button>Home</button></Link>
           <Link to={"/addtocollection/"}><button>AddtoCollection</button></Link>
           <Link to={"/collection/"}><button>Collection</button></Link>
           <Link to={"/collections/"}><button>Collections</button></Link>
