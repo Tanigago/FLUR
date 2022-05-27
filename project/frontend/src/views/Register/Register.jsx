@@ -23,7 +23,7 @@ function Register () {
             </div>
 
             <div className={style.buttonRegister}>
-                <Link to="/signin/">
+                <Link to="/">
                     <button className={style.registerButton}>Regístrate</button>
                 </Link>
             </div>

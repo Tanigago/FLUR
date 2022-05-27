@@ -18,7 +18,7 @@ function Login() {
             </div>
 
             <div className={style.buttonLogin}>
-                <Link to="/signin/">
+                <Link to="/">
                     <button className={style.signinButton}>Inicia sesión</button>
                 </Link>
             </div>

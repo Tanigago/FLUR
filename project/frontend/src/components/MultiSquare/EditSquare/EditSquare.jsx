@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './editSquarestyle.module.css';
-import panda from './panda.jpg';
+import calzado1 from '../../../img/calzado1.jpg';
 
 
 function EditSquare() {
@@ -9,7 +9,7 @@ function EditSquare() {
 
         <div className={styles.bigBox}>
             <div className={styles.backImg}>
-                <img className={styles.backgroundPhoto} src={panda} width={106} height={106} alt='Panda Rojo' />
+                <img className={styles.backgroundPhoto} src={calzado1} width={106} height={106} alt='Botas' />
             </div>
 
             <div className={styles.EditSquare}>

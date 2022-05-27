@@ -1,6 +1,6 @@
 import styles from './menuTopStyle.module.css';
-import iconback90 from './iconback90.png';
-import iconmenuvert96 from './iconmenuvert96.png';
+import iconback90 from '../../img/iconback90.png';
+import iconmenuvert96 from '../../img/iconmenuvert96.png';
 
 import { Link } from 'react-router-dom';
 
@@ -14,7 +14,7 @@ function MenuTop({goback , insitu}) {
                 </button>
             </Link>
             <p className={styles.titlePage}>{insitu}</p>
-            <Link to="http://localhost:3000/">
+            <Link to="/home/">
                 <button className={styles.gomenuvert}>
                     <img src={iconmenuvert96} width={25} height={25} alt='Menu' />
                 </button>

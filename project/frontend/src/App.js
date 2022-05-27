@@ -19,14 +19,6 @@ import MenuTop from './components/MenuTop/MenuTop';
 
 import { Link, Route, Routes, useNavigate } from 'react-router-dom';
 
-const tagsMockup = [
-  { path: "/verano", name: "Verano", delbutton: false, count: 0 },
-  { path: "/festival", name: "Festival", delbutton: true, count: 5 },
-  { path: "/playa", name: "Playa", delbutton: false, count: 666 },
-  { path: "/pijamaparty", name: "Pijama", delbutton: false, count: 1 }
-]
-
-
 function App() {
   /*const [ store ] = useContext(Context);
   const navigate = useNavigate();
@@ -70,7 +62,7 @@ function App() {
         <Route path='/home/' element={<Home/>}/>
         <Route path='/addtocollection/' element={<AddtoCollection/>}/>
         <Route path='/collection/' element={<Collection/>}/>
-        <Route path='/collections/' element={<Collections tagpath={"/danielote/"} tagtext={"Cosa"} count={5} pluralize={true}/>}/>
+        <Route path='/collections/' element={<Collections/>}/>
         <Route path='/editCollection/' element={<EditCollection/>}/>
         <Route path='/editItem/' element={<EditItem/>}/>
         <Route path='/login/' element={<Login/>}/>
