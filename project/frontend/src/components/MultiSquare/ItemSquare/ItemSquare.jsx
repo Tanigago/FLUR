@@ -3,7 +3,7 @@ import styles from './itemSquareStyles.module.css';
 import calzado1 from '../../../img/calzado1.jpg';
 
 function ItemSquare () {
-
+    
     return(
         <Link to="/">
             <div className={styles.itemSquare}>

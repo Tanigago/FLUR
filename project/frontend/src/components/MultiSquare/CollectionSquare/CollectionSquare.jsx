@@ -1,21 +1,17 @@
 import styles from './collectionSquare.module.css';
 
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { Context } from "../../../storage/Sharedtorage.jsx";
 
-function CollectionSquare() {
+function CollectionSquare({collection}) {
 
-    const [store, setStore] = useContext(Context);
-
-    // { tagpath, tagtext, count, pluralize }
+    const [states, actions] = useContext(Context);
 
     return (
-        <Link to={store.tagpath ?? "/"}>
+        <Link to={collection.tagpath ?? "/"}>
             <div className={styles.borderSquare}>
 
-                <p className={styles.collectionName}>{store.tagtext}</p>
-                <p className={styles.collectionCounter}>{store.count ?? 0} item{store.pluralize && 's'}</p>
+                <p className={styles.collectionName}>{collection.tagtext}</p>
+                <p className={styles.collectionCounter}>{collection.count ?? 0} item{collection.pluralize && 's'}</p>
 
             </div>
         </Link>
