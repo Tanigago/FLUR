@@ -17,9 +17,12 @@ import Today from './views/Today/Today';
 import MenuBottom from './components/MenuBottom/MenuBottom';
 import MenuTop from './components/MenuTop/MenuTop';
 
-import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
+import CollectionList from './components/CollectionList/CollectionList';
 
 function App() {
+
+  const { states } = useContext(Context)
 
   return (
     <div>
@@ -32,6 +35,7 @@ function App() {
           <Link to={"/addtocollection/"}><button>AddtoCollection</button></Link>
           <Link to={"/collection/"}><button>Collection</button></Link>
           <Link to={"/collections/"}><button>Collections</button></Link>
+          <Link to={"/collectionlist/"}><button>Collection List</button></Link>
           <Link to={"/editCollection/"}><button>EditCollection</button></Link>
           <Link to={"/editItem/"}><button>EditItem</button></Link>
           <Link to={"/login/"}><button>Login</button></Link>
@@ -50,6 +54,7 @@ function App() {
         <Route path='/addtocollection/' element={<AddtoCollection/>}/>
         <Route path='/collection/' element={<Collection/>}/>
         <Route path='/collections/' element={<Collections/>}/>
+        <Route path='/collectionlist/' element={<CollectionList collectionArray={states.colecciones} />}/> 
         <Route path='/editCollection/' element={<EditCollection/>}/>
         <Route path='/editItem/' element={<EditItem/>}/>
         <Route path='/login/' element={<Login/>}/>

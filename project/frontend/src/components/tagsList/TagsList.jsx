@@ -3,13 +3,13 @@ import styles from "./tagsListStyle.module.css";
 import { useContext } from "react";
 import {Context} from '../../storage/Sharedtorage.jsx';
 
-function TagsList() {
+function TagsList({collection}) {
     
-    const [ store, setStore ] = useContext(Context);
+    const [states, actions] = useContext(Context);
 
     return(
         <ul className={styles.tags}>
-            <Tag tagPath={store.path} tagText={store.name} tagDelbutton={store.delbutton}/>
+            <Tag tagPath={collection.tagpath} tagText={collection.tagtext} tagDelbutton={collection.tagdelbutton}/>
         </ul>
     )
 }

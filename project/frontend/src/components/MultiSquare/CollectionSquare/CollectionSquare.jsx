@@ -1,10 +1,11 @@
 import styles from './collectionSquare.module.css';
-
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Context } from '../../../storage/Sharedtorage';
 
 function CollectionSquare({collection}) {
 
-    const [states, actions] = useContext(Context);
+    const { states } = useContext(Context);
 
     return (
         <Link to={collection.tagpath ?? "/"}>

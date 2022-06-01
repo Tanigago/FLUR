@@ -27,6 +27,9 @@ db.run(`
         collections(
             idCollection INTEGRER PRIMARY KEY AUTO_INCREMENT,
             nameCollection TEXT NOT NULL,
+            waterproofCollection TEXT NOT NULL,
+            warmCollection TEXT NOT NULL,
+            seasonCollection TEXT NOT NULL,
             FOREIGN KEY(idUser) references users(idUser)
         )
 `);
