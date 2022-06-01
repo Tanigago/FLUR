@@ -5,7 +5,7 @@ import {Context} from '../../storage/Sharedtorage.jsx';
 
 function TagsList({collection}) {
     
-    const [states, actions] = useContext(Context);
+    const { states } = useContext(Context);
 
     return(
         <ul className={styles.tags}>

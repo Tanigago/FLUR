@@ -1,14 +1,17 @@
-import styles from "./collectionListStyle.module.css";
-import CollectionSquare from "../MultiSquare/CollectionSquare/CollectionSquare";
+import Tag from "../Tag/Tag";
+import styles from "./collectionTagListStyle.module.css";
+import { useContext } from "react";
+import {Context} from '../../storage/Sharedtorage.jsx';
 
-function CollectionList({collectionArray}) {
+function CollectionTagList({collection}) {
+    
+    const {states} = useContext(Context);
+
     return(
-        <ul className={styles.collectionsbody}>
-            {collectionArray.map(
-                    item => <CollectionSquare collection={item}/>
-            )}
+        <ul className={styles.tags}>
+            <Tag tagPath={collection.tagpath} tagText={collection.tagtext} tagDelbutton={collection.tagdelbutton}/>
         </ul>
     )
 }
 
-export default CollectionList
+export default CollectionTagList

@@ -1,11 +1,18 @@
-import CollectionSquare from "../../components/MultiSquare/CollectionSquare/CollectionSquare"
+import styles from "./collectionsBodyStyle.module.css"
+import NewSquare from "../../components/MultiSquare/NewSquare/NewSquare";
+import CollectionSquare from "../../components/MultiSquare/CollectionSquare/CollectionSquare";
 
-
-function Collections () {
-    return (
+function Collections({collectionArray}) {
+    return(
         <>
-            <CollectionSquare/>
+            <ul className={styles.collectionsBody}>
+                {collectionArray.map(
+                        item => <CollectionSquare collection={item}/>
+                )}
+            </ul>
+            <NewSquare/>
         </>
+
     )
 }
 

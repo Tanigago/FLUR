@@ -1,13 +1,15 @@
-import CollectionSquare from "../../components/MultiSquare/CollectionSquare/CollectionSquare"
-import NewSquare from "../../components/MultiSquare/NewSquare/NewSquare"
+import styles from "./addtoCollectionStyle.module.css"
+import NewSquare from "../../components/MultiSquare/NewSquare/NewSquare";
+import CollectionSquare from "../../components/MultiSquare/CollectionSquare/CollectionSquare";
 
-function Collection () {
-    return (
+function AddtoCollection({collectionArray}) {
+    return(
         <>
-            <CollectionSquare/>
+
             <NewSquare/>
         </>
+
     )
 }
 
-export default Collection
+export default AddtoCollection

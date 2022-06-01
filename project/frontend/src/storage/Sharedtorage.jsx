@@ -22,7 +22,12 @@ export function ContextProvider ( {children} ) {
     ]
     );
 
-    const [ calzados, setCalzados ] = useState([])
+    const [ calzados, setCalzados ] = useState([
+        {
+            iditem: "f34b98",
+            imgUrl: "../img/calzado2.jpg",
+        }
+    ])
 
     const context = {
         states: {

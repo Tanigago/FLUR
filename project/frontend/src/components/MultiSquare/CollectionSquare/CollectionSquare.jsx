@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../../../storage/Sharedtorage';
 
-function CollectionSquare({collection}) {
+function CollectionSquare({ collection }) {
 
     const { states } = useContext(Context);
 

@@ -53,8 +53,8 @@ function App() {
         <Route path='/home/' element={<Home/>}/>
         <Route path='/addtocollection/' element={<AddtoCollection/>}/>
         <Route path='/collection/' element={<Collection/>}/>
-        <Route path='/collections/' element={<Collections/>}/>
-        <Route path='/collectionlist/' element={<CollectionList collectionArray={states.colecciones} />}/> 
+        <Route path='/collections/' element={<Collections collectionArray={states.colecciones}/>}/>
+        <Route path='/collectionlist/' element={<CollectionList collection={states.colecciones} />}/> 
         <Route path='/editCollection/' element={<EditCollection/>}/>
         <Route path='/editItem/' element={<EditItem/>}/>
         <Route path='/login/' element={<Login/>}/>
