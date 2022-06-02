@@ -1,0 +1,10 @@
+.bodyAddtoCollection{
+    width: 80%;
+}
+
+.addCollectionsUL {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 0px;
+}

@@ -1,5 +1,10 @@
-.collectionsBody {
+.bodyCollections{
+    width: 80%;
+}
+
+.collectionsUL {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    padding-left: 0px;
 }

@@ -18,6 +18,13 @@ export function ContextProvider ( {children} ) {
             count: 8,
             pluralize: true,
             tagdelbutton: false,
+        },
+        {
+            tagtext: "San Juan",
+            tagpath: "/san-juan/",
+            count: 3,
+            pluralize: true,
+            tagdelbutton: true,
         }
     ]
     );

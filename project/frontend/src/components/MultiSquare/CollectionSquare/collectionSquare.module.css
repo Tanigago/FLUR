@@ -6,9 +6,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-bottom: 10px;
     background-color: rgb(255, 218, 175);
-    margin-right: 20px;
 }
 
 .collectionName{
@@ -22,4 +20,8 @@
     order: 2;
     padding-right: 5px;
     padding-top: 18pt;
+}
+
+.bodyCollectionSquare {
+    margin-right: 20px;
 }

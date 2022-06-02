@@ -1,13 +1,15 @@
 import styles from "./addtoCollectionStyle.module.css"
-import NewSquare from "../../components/MultiSquare/NewSquare/NewSquare";
 import CollectionSquare from "../../components/MultiSquare/CollectionSquare/CollectionSquare";
 
 function AddtoCollection({collectionArray}) {
     return(
-        <>
-
-            <NewSquare/>
-        </>
+        <div className={styles.bodyAddtoCollection}>
+            <ul className={styles.addCollectionsUL}>
+                {collectionArray.map(
+                        item => <CollectionSquare collection={item}/>
+                )}
+            </ul>
+        </div>
 
     )
 }
