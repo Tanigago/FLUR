@@ -28,7 +28,7 @@ function App() {
   const { states } = useContext(Context)
 
   return (
-    <div className={style.fullHeight}>
+    <div>
        <header>
         <h1>
           FLUR
@@ -51,29 +51,29 @@ function App() {
           <Link to={"/taglist/"}><button>TagList</button></Link>
         </nav>
       </header>
+      <body className={style.bodyFullHeight}>
+        <MenuTop insitu={"Verano"} goback={"Home"}/>
 
-      <MenuTop insitu={"Verano"} goback={"Home"}/>
+        <Routes>
+          <Route path='/start/' element={<Start/>}/>
+          <Route path='/register/' element={<Register/>}/>
+          <Route path='/login/' element={<Login/>}/>
+          <Route path='/home/' element={<Home/>}/>
+          <Route path='/today/' element={<Today/>}/>
+          <Route path='/collections/' element={<Collections collectionArray={states.colecciones}/>}/>
+          <Route path='/collection/' element={<Collection/>}/>
+          <Route path='/collectionlist/' element={<CollectionList collectionArray={states.colecciones}/>}/> 
+          <Route path='/addtocollection/' element={<AddtoCollection  collectionArray={states.colecciones}/>}/>
+          <Route path='/editCollection/' element={<EditCollection/>}/>
+          <Route path='/newCollection/' element={<NewCollection/>}/>
+          <Route path='/editItem/' element={<EditItem tagsArray={states.colecciones}/>}/>
+          <Route path='/profile/' element={<Profile/>}/>
+          <Route path='/tag/' element={<Tag/>}/>
+          <Route path='/taglist/' element={<TagsList/>}/>
+        </Routes>
 
-      <Routes>
-        <Route path='/start/' element={<Start/>}/>
-        <Route path='/register/' element={<Register/>}/>
-        <Route path='/login/' element={<Login/>}/>
-        <Route path='/home/' element={<Home/>}/>
-        <Route path='/today/' element={<Today/>}/>
-        <Route path='/collections/' element={<Collections collectionArray={states.colecciones}/>}/>
-        <Route path='/collection/' element={<Collection/>}/>
-        <Route path='/collectionlist/' element={<CollectionList collectionArray={states.colecciones}/>}/> 
-        <Route path='/addtocollection/' element={<AddtoCollection  collectionArray={states.colecciones}/>}/>
-        <Route path='/editCollection/' element={<EditCollection/>}/>
-        <Route path='/newCollection/' element={<NewCollection/>}/>
-        <Route path='/editItem/' element={<EditItem tagsArray={states.colecciones}/>}/>
-        <Route path='/profile/' element={<Profile/>}/>
-        <Route path='/tag/' element={<Tag/>}/>
-        <Route path='/taglist/' element={<TagsList/>}/>
-      </Routes>
-
-      <MenuBottom/>
-
+        <MenuBottom/>
+      </body>
     </div>
   );
 }
