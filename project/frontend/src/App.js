@@ -7,7 +7,7 @@ import { Link, Route, Routes } from 'react-router-dom';
 import AddtoCollection from './views/AddtoCollection/AddtoCollection';
 import Collection from './views/Collection/Collection';
 import Collections from './views/Collections/Collections';
-import CollectionList from './components/CollectionList/CollectionList';
+import CollectionHorList from './components/CollectionHorList/CollectionHorList';
 import EditCollection from './views/EditCollection/EditCollection';
 import EditItem from './views/EditItem/EditItem';
 import Home from './views/Home/Home';
@@ -41,7 +41,7 @@ function App() {
           <Link to={"/today/"}><button>Today</button></Link>
           <Link to={"/collections/"}><button>Collections</button></Link>
           <Link to={"/collection/"}><button>Collection</button></Link>
-          <Link to={"/collectionlist/"}><button>Collection List</button></Link>
+          <Link to={"/collectionhorlist/"}><button>Collection Horizontal List</button></Link>
           <Link to={"/addtocollection/"}><button>AddtoCollection</button></Link>
           <Link to={"/editCollection/"}><button>EditCollection</button></Link>
           <Link to={"/newCollection/"}><button>NewCollection</button></Link>
@@ -51,7 +51,7 @@ function App() {
           <Link to={"/taglist/"}><button>TagList</button></Link>
         </nav>
       </header>
-      <body className={style.bodyFullHeight}>
+      <div className={style.bodyFullHeight}>
         <MenuTop insitu={"Verano"} goback={"Home"}/>
 
         <Routes>
@@ -62,18 +62,18 @@ function App() {
           <Route path='/today/' element={<Today/>}/>
           <Route path='/collections/' element={<Collections collectionArray={states.colecciones}/>}/>
           <Route path='/collection/' element={<Collection/>}/>
-          <Route path='/collectionlist/' element={<CollectionList collectionArray={states.colecciones}/>}/> 
+          <Route path='/collectionhorlist/' element={<CollectionHorList collectionArray={states.colecciones}/>}/> 
           <Route path='/addtocollection/' element={<AddtoCollection  collectionArray={states.colecciones}/>}/>
           <Route path='/editCollection/' element={<EditCollection/>}/>
           <Route path='/newCollection/' element={<NewCollection/>}/>
           <Route path='/editItem/' element={<EditItem tagsArray={states.colecciones}/>}/>
           <Route path='/profile/' element={<Profile/>}/>
-          <Route path='/tag/' element={<Tag/>}/>
-          <Route path='/taglist/' element={<TagsList/>}/>
+          <Route path='/tag/' element={<Tag coleccion={states.colecciones[0]}/>}/>
+          <Route path='/taglist/' element={<TagsList collectionArray={states.colecciones}/>}/>
         </Routes>
 
         <MenuBottom/>
-      </body>
+      </div>
     </div>
   );
 }

@@ -36,7 +36,7 @@ export function ContextProvider ( {children} ) {
         }
     ])
 
-    const context = {
+    const storage = {
         states: {
             colecciones,
             calzados
@@ -47,7 +47,7 @@ export function ContextProvider ( {children} ) {
     }
 
     return (
-        <Context.Provider value={context}>
+        <Context.Provider value={storage}>
             {children}
         </Context.Provider>
     )
