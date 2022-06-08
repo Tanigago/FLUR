@@ -28,7 +28,7 @@ function App() {
   const { states } = useContext(Context)
 
   return (
-    <div>
+    <div className={style.bodyFullHeight}>
        <header>
         <h1>
           FLUR
@@ -51,15 +51,15 @@ function App() {
           <Link to={"/taglist/"}><button>TagList</button></Link>
         </nav>
       </header>
-      <div className={style.bodyFullHeight}>
-        <MenuTop insitu={"Verano"} goback={"Home"}/>
+      <div >
+        <MenuTop insitu={"Verano"}/>
 
         <Routes>
           <Route path='/start/' element={<Start/>}/>
           <Route path='/register/' element={<Register/>}/>
           <Route path='/login/' element={<Login/>}/>
           <Route path='/home/' element={<Home/>}/>
-          <Route path='/today/' element={<Today/>}/>
+          <Route path='/today/' element={<Today tagsArray={states.colecciones}/>}/>
           <Route path='/collections/' element={<Collections collectionArray={states.colecciones}/>}/>
           <Route path='/collection/' element={<Collection/>}/>
           <Route path='/collectionhorlist/' element={<CollectionHorList collectionArray={states.colecciones}/>}/> 
@@ -67,7 +67,7 @@ function App() {
           <Route path='/editCollection/' element={<EditCollection/>}/>
           <Route path='/newCollection/' element={<NewCollection/>}/>
           <Route path='/editItem/' element={<EditItem tagsArray={states.colecciones}/>}/>
-          <Route path='/profile/' element={<Profile/>}/>
+          <Route path='/profile/' element={<Profile user={states.nombres[0]}/>}/>
           <Route path='/tag/' element={<Tag coleccion={states.colecciones[0]}/>}/>
           <Route path='/taglist/' element={<TagsList collectionArray={states.colecciones}/>}/>
         </Routes>

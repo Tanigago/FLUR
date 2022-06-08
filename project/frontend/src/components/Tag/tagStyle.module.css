@@ -8,10 +8,7 @@
     flex-wrap: wrap;
     max-width: fit-content;
     margin-bottom: 10px;
-}
-
-.liElement{
-
+    margin-right: 10px;
 }
 
 .etiqueta{

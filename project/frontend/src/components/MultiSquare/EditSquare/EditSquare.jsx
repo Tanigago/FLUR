@@ -14,7 +14,7 @@ function EditSquare() {
 
             <div className={styles.EditSquare}>
                 <button className={styles.removeButton}>x</button>
-                <Link to="/">
+                <Link to="/editItem/">
                     <p className={styles.editButton}>EDITAR</p>
                 </Link>
             </div>

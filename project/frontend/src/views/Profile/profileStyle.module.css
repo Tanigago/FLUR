@@ -1,0 +1,29 @@
+.bodyProfile h2{
+    font-size: 14pt;
+}
+
+.bodyProfile button{
+    border: none;
+    background: none;
+}
+
+.headerProfile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    margin-left: 10px
+}
+
+.headerProfile h2 {
+    margin-left: 10px
+}
+
+.sections{
+    display: flex;
+    flex-direction: column;
+}
+
+.sections img{
+    transform: rotate(180deg);
+}

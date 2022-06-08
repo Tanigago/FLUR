@@ -1,7 +1,13 @@
 .collectionHorListbody{
+    display: flex;
+    flex-direction: column;
+}
 
+.collectionHorListbody::-webkit-scrollbar {
+    display: none;
 }
 
 .hortags {
-
+    display: flex;
+    flex-direction: row;
 }

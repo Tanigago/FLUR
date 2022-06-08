@@ -5,7 +5,7 @@ import apiWeather from '../../img/apiWeatherExample.png';
 import Tag from '../../components/Tag/Tag';
 import ItemSquare from '../../components/MultiSquare/ItemSquare/ItemSquare';
 
-function Home() {
+function Home({tagsArray}) {
 
     return (
         <div className={style.bodyToday}>
@@ -14,7 +14,10 @@ function Home() {
             </div>    
 
             <div className={style.horizontalTags}>
-                <Tag/>            
+                <p>Pdte poner componente tags horizontal.</p>
+                {tagsArray.map(
+                    item => <Tag coleccion={item}/>
+                )}
             </div> 
 
             <div className={style.itemGallery}>

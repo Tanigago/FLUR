@@ -6,7 +6,3 @@ a:link, a:visited, a:active {
     text-decoration:none;
     color: inherit;
 }
-
-.bodyFullHeight{
-    height: 90vh;
-}

@@ -26,20 +26,26 @@ export function ContextProvider ( {children} ) {
             pluralize: true,
             tagdelbutton: true,
         }
-    ]
-    );
+    ]);
 
     const [ calzados, setCalzados ] = useState([
         {
             iditem: "f34b98",
             imgUrl: "../img/calzado2.jpg",
         }
-    ])
+    ]);
+    
+    const [ nombres, setnombres ] =useState([
+        {
+            name: "Tania",
+        }
+    ]);
 
     const storage = {
         states: {
             colecciones,
-            calzados
+            calzados,
+            nombres
         },
         actions: {
 
