@@ -1,7 +1,9 @@
+/*ESTE ARCHIVO NO SE ESTÁ USANDO EN NINGÚN SITIO*/ 
+
 import { useContext, useState } from "react";
 import { Context } from "../../storage/Sharedtorage.jsx";
 import { API_URL, post } from "../../aux_api";
-import "./RegisterStyle.module.css"
+import styles from "./RegisterStyle.module.css"
 
 function Register () {
 
@@ -32,18 +34,23 @@ function Register () {
     }
 
     return (
-        <>
-            <h3>
-                <br>Regístrate ahora</br>
-                <br>Crea una cuenta</br>
-                <br>y guarda tus</br>
-                <br> preferencias.</br>
-            </h3>
+        <div className={styles.bodyRegister}>
+            <div className='{styles.topText}'>
+                <h3>
+                    <br>Regístrate ahora</br>
+                    <br>Crea una cuenta</br>
+                    <br>y guarda tus</br>
+                    <br> preferencias.</br>
+                </h3>
+            </div>
+
+            <div className={styles.inputs}>
             <input onChange={userInputChangeHandler} type="text" placeholder="Nombre"/>
             <input onChange={emailInputChangeHandler} type="text" placeholder="Email"/>
             <input onChange={passwordInputChangeHandler} type="password" placeholder="Password"/>
+            </div>
             <button onClick={clickHandler}>Crear cuentas</button>
-        </>
+        </div>
     )
 }
 

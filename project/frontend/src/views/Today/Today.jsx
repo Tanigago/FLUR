@@ -2,10 +2,10 @@ import style from './todayStyle.module.css';
 
 import apiWeather from '../../img/apiWeatherExample.png';
 
-import Tag from '../../components/Tag/Tag';
 import ItemSquare from '../../components/MultiSquare/ItemSquare/ItemSquare';
+import CollectionHorList from '../../components/CollectionHorList/CollectionHorList';
 
-function Home({tagsArray}) {
+function Today({tagsArray}) {
 
     return (
         <div className={style.bodyToday}>
@@ -14,10 +14,7 @@ function Home({tagsArray}) {
             </div>    
 
             <div className={style.horizontalTags}>
-                <p>Pdte poner componente tags horizontal.</p>
-                {tagsArray.map(
-                    item => <Tag coleccion={item}/>
-                )}
+                <CollectionHorList collectionArray={tagsArray}/>
             </div> 
 
             <div className={style.itemGallery}>
@@ -27,4 +24,4 @@ function Home({tagsArray}) {
     )
 }
 
-export default Home
+export default Today

@@ -6,6 +6,10 @@
     background-size: cover;
 }
 
+.bodyLogin input {
+    margin-bottom: 10px;
+}
+
 .textLogin {
     line-height: 8px;
     text-align-last: center;

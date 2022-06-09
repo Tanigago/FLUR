@@ -24,7 +24,7 @@ export function ContextProvider ( {children} ) {
             tagpath: "/san-juan/",
             count: 3,
             pluralize: true,
-            tagdelbutton: true,
+            tagdelbutton: false,
         }
     ]);
 

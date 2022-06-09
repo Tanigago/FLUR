@@ -6,6 +6,10 @@
     background-size: cover;
 }
 
+.bodyRegister input {
+    margin-bottom: 10px;
+}
+
 .textRegister {
     line-height: 5%;
     text-align-last: center;

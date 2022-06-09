@@ -5,7 +5,7 @@ function CollectionHorList({ collectionArray }) {
 
     return (
         <div className={styles.collectionHorListbody}>
-            <p>Pdte de mod css</p>
+
             <ul className={styles.hortags}>
                 {collectionArray.map(
                     item => <Tag coleccion={item}/>
