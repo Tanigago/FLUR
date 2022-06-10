@@ -13,9 +13,9 @@ import {
     insertCollection,
     insertShoes,
     getUsers,
-    getCollection,
+    getCollections,
     getShoes
-} from "./db.mjs";
+} from "./models/dbFLUR.mjs";
 
 const app = express();
 app.use(express.json());
@@ -68,23 +68,9 @@ function authMiddleware (request, response, next) {
             const [ authType, b64token ] = request.headers.authorization.split(" ",2);
             if ( authType !== "Basic") {
                 response.status(400);
-                response.send(`Ùnknown authentication type: ${authType}`);
+                response.send(`Unknown authentication type: ${authType}`);
                 return
-            }
-            const [ source, password ] = decodeBasicToken(request);
-            findSource(source, password, (error, data)=>{
-                if (error) {
-                    console.error(error)
-                    throw error;
-                }
-                if ( data ) {
-                    next();
-                } else {
-                    response.status(401);
-                    response.send('Unauthorized');
-                    return
-                }
-            });
+            };
         };
     } catch (err) {
         response.status(500)
@@ -147,17 +133,17 @@ app.get('/users/', (request, response)=>{
     }
 });
 
-app.post('/message/', authMiddleware, (request, response) => {
+app.post('/collection/', authMiddleware, (request, response) => {
     try {
-        const [ source ] =  decodeBasicToken(request)
+        const [ collection ] =  decodeBasicToken(request)
         const { content } = request.body;
-        if ( ! source || ! content ) {
+        if ( ! collection || ! content ) {
             response.status(400)
             response.send("Must provide a valid authentication token and a 'content' JSON");
             return
         }
-        const newMessage = new Message(source, content);
-        insertMessage(newMessage);
+        const newCollection = new Message(collection, content);
+        insertMessage(newCollection);
         getLastMessages(1, (error, data)=>{
             if ( error ) {
                 console.error(error);
@@ -178,9 +164,9 @@ app.post('/message/', authMiddleware, (request, response) => {
     }
 });
 
-app.get('/messages/', authMiddleware, (request, response) => {
+app.get('/collections/', authMiddleware, (request, response) => {
     try {
-        getLastMessages(15, (error, data)=>{
+        getCollections(15, (error, data)=>{
             if ( error ) {
                 console.error(error);
                 response.status(500)

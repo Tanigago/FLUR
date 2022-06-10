@@ -13,11 +13,12 @@ db.run(`
     CREATE TABLE
         IF NOT EXISTS
         users(
-            idUser INTEGRER PRIMARY KEY AUTO_INCREMENT,
+            idUser INTEGER AUTO_INCREMENT,
             name TEXT NOT NULL,
             email TEXT NOT NULL,
             password TEXT NOT NULL,
-            photoProfile TEXT
+            photoProfile TEXT,
+            PRIMARY KEY (idUser)
         )
 `);
 
@@ -25,12 +26,16 @@ db.run(`
     CREATE TABLE
         IF NOT EXISTS
         collection(
-            idCollection INTEGRER PRIMARY KEY AUTO_INCREMENT,
+            idCollection INTEGER AUTO_INCREMENT,
             nameCollection TEXT NOT NULL,
             waterproofCollection TEXT NOT NULL,
             warmCollection TEXT NOT NULL,
             seasonCollection TEXT NOT NULL,
-            FOREIGN KEY(idUser) references users(idUser)
+            userdId INTEGER,
+            collectionShoesId INTEGER,
+            FOREIGN KEY (userdId) REFERENCES users (idUser),
+            FOREIGN KEY (collectionShoesId) REFERENCES collections_shoes(idCollectionShoes),
+            PRIMARY KEY (idCollection)
         )
 `);
 
@@ -38,9 +43,11 @@ db.run(`
     CREATE TABLE
         IF NOT EXISTS
         shoes(
-            idShoes INTEGRER PRIMARY KEY AUTO_INCREMENT,
+            idShoes INTEGER AUTO_INCREMENT,
             photoShoes TEXT NOT NULL,
-            FOREIGN KEY(idUser) references users(idUser)
+            userdId INTEGER,
+            FOREIGN KEY (userdId) REFERENCES users (idUser),
+            PRIMARY KEY (idShoes)
         )
 `);
 
@@ -48,11 +55,11 @@ db.run(`
     CREATE TABLE
         IF NOT EXISTS
         collections_shoes(
-            idCollectionShoes INTEGRER PRIMARY KEY AUTO_INCREMENT,
-            idCollection INTEGRER PRIMARY KEY AUTO_INCREMENT,
-            idShoes INTEGRER PRIMARY KEY AUTO_INCREMENT,
-            FOREIGN KEY(idCollection) references collections(idCollection),
-            FOREIGN KEY(idShoes) references shoes(idShoes)
+            idCollectionShoes INTEGER AUTO_INCREMENT,
+            idCollection INTEGER AUTO_INCREMENT,
+            idShoes INTEGER AUTO_INCREMENT,
+            FOREIGN KEY(idCollection) REFERENCES collections(idCollection),
+            FOREIGN KEY(idShoes) REFERENCES shoes(idShoes)
 
 
         )
@@ -123,7 +130,7 @@ export function getUsers ( callback ) {
     db.all("SELECT idUser, name FROM users", callback);
 }
 
-export function getCollection ( callback ) {
+export function getCollections ( callback ) {
     db.all("SELECT idCollection, name FROM collection", callback);
 }
 

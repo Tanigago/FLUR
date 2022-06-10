@@ -3,17 +3,23 @@ export const newCollectionSchema = {
     type: "object",
     properties: {
         title: {
-            description: "Title",
+            description: "Nombre de la colección",
             type: "string"
         },
-        counter: {
-            description: "items",
-            type: "string"
+        waterprooflvl: {
+            description: "Bajo",
+            type: "string",
+            enum: ["Bajo", "Medio", "Alto"]
         },
-        done: {
+        warmlvl: {
             description: "Task status",
             type: "boolean"
-        } 
+        },
+        season: {
+            description: "Primavera",
+            type: "string"
+        }
+
     },
     additionalProperties: false
 }
