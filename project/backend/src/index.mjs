@@ -1,191 +1,63 @@
-import { config } from 'dotenv';
-import express from 'express';
-import cors from 'cors';
+import express from "express";
 
-if (process.env.NODE_ENV !== 'production') config();
+import { authMiddleware } from "./middleware/authorization.mjs";
+import { requestLog } from "./middleware/requestLog.mjs";
+import { validateUserJSON } from "./middleware/jsonValidator.mjs";
 
-import {
-    sqlCallback,
-    findUser,
-    findCollection,
-    findShoes,
-    insertUser,
-    insertCollection,
-    insertShoes,
-    getUsers,
-    getCollections,
-    getShoes
-} from "./models/dbFLUR.mjs";
+import { postUserController, getUsersController, putUserController, deleteUserController } from "./controllers/usersControllers.mjs";
+import { deleteCollectionController, getCollectionController, getCollectionsController, postCollectionController, putCollectionController } from "./controllers/collectionsControllers.mjs";
 
+const PATH_PREFIX = "/api/v0.0"
 const app = express();
-app.use(express.json());
-app.use(cors());
+try {
+    const jsonParser = express.json();
+    app.use(requestLog);
 
-// Nuestro modelo de datos.
-class User {
-    constructor (name, email, password, photoProfile) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.photoProfile = photoProfile;
-        this.idUser = Date.now();
-    }
+    app.post(PATH_PREFIX+"/user/", jsonParser, validateUserJSON, postUserController);
+    app.get(PATH_PREFIX+"/user/:id", jsonParser, getUsersController);
+    app.get(PATH_PREFIX+"/users/", jsonParser, getUsersController);
+    app.put(PATH_PREFIX+"/user/", jsonParser, putUserController);
+    app.delete(PATH_PREFIX+"/user/", jsonParser, deleteUserController);
+
+    app.post(PATH_PREFIX+"/collection/", authMiddleware, jsonParser, postCollectionController);
+    app.get(PATH_PREFIX+"/collection/:id", authMiddleware, getCollectionController);
+    app.get(PATH_PREFIX+"/collections/", authMiddleware, getCollectionsController);
+    app.put(PATH_PREFIX+"/collection/", authMiddleware, jsonParser, putCollectionController);
+    app.delete(PATH_PREFIX+"/collection/", authMiddleware, jsonParser, deleteCollectionController);
+
+    app.listen(process.env.PORT || 3000,()=>{
+        console.log("Express running...");
+    });
+} catch (err) {
+    console.error(err);
 }
 
-class Collection {
-    constructor (nameCollection, waterproofCollection, warmCollection, seasonCollection) {
-        this.nameCollection = nameCollection;
-        this.waterproofCollection = waterproofCollection;
-        this.warmCollection = warmCollection;
-        this.seasonCollection = seasonCollection;
-        this.idCollection = Date.now();
-    }
+import express from "express";
+
+import { authMiddleware } from "./middleware/authorization.mjs";
+import { validateUserJSON, validateNewTaskJSON, validateTaskJSON, validateDeleteTaskJSON } from "./middleware/jsonValidator.mjs";
+
+import { postUserController, getUsersController, deleteUserController, putUserController } from "./controllers/usersControllers.mjs";
+import { deleteTaskController, getTasksController, postTaskController, putTaskController } from "./controllers/tasksControllers.mjs";
+
+const PATH_PREFIX = "/api/v0.0"
+const app = express();
+try {
+    const jsonParser = express.json();
+
+    app.post(PATH_PREFIX + "/users/", jsonParser, validateUserJSON, postUserController);
+    app.get(PATH_PREFIX + "/users/", jsonParser, getUsersController);
+    app.delete(PATH_PREFIX + "/users/", jsonParser, deleteUserController);
+    app.put(PATH_PREFIX + "/users/", jsonParser, putUserController);
+
+    app.get(PATH_PREFIX + "/tasks/", authMiddleware, getTasksController);
+    app.post(PATH_PREFIX + "/task/", authMiddleware, jsonParser, validateNewTaskJSON, postTaskController);
+    app.put(PATH_PREFIX + "/task/", authMiddleware, jsonParser, validateTaskJSON, putTaskController);
+    app.delete(PATH_PREFIX + "/task/", authMiddleware, jsonParser, validateDeleteTaskJSON, deleteTaskController);
+
+    app.listen(process.env.PORT || 3000, () => {
+        console.log("Express running...");
+    });
+} catch (err) {
+    console.error(err);
 }
-
-class Shoes {
-    constructor (photoProfile) {
-        this.photoProfile = photoProfile;
-        this.idShoes = Date.now();
-    }
-}
-const users = [];
-const collection = [];
-const shoes = [];
-
-function decodeBasicToken(request) {
-    const [ authType, b64token ] = request.headers.authorization.split(" ",2);
-    const token = atob(b64token);
-    return token.split(":",2);
-}
-
-function authMiddleware (request, response, next) {
-    try {
-        if ( ! request.headers.authorization ) {
-            response.status(401);
-            response.send(`Authentication requiered.`);
-            return
-        } else {
-            const [ authType, b64token ] = request.headers.authorization.split(" ",2);
-            if ( authType !== "Basic") {
-                response.status(400);
-                response.send(`Unknown authentication type: ${authType}`);
-                return
-            };
-        };
-    } catch (err) {
-        response.status(500)
-        response.send(err)
-        return
-    }
-}
-
-app.post('/login/', (request, response) => {
-    try {
-        const { userName, password } = request.body;
-        if ( ! userName || ! password ) {
-            response.status(400)
-            response.send("Must provide 'userName' and 'password' JSON");
-            return
-        }
-        findUser(userName, password, (error, data)=>{
-            if (error) {
-                console.error(error)
-                throw error;
-            }
-            if ( data ) {
-                response.status(401);
-                response.send("Usuario ya registrado");
-                return
-            } else {
-                const newUser = new User(userName, password);
-                insertUser(newUser,sqlCallback);
-                const json = JSON.stringify(newUser.id)
-                response.send(json);
-                return
-            }
-        });
-    } catch (err) {
-        response.status(500)
-        response.send(err)
-        return
-    }
-});
-
-app.get('/users/', (request, response)=>{
-    try {
-        getUsers((error, data)=>{
-            if ( error ) {
-                console.error(error);
-                response.status(500)
-                response.send("Database error.")
-                return
-            }
-            if ( data ){
-                const json = JSON.stringify(data)
-                response.send(json);
-                return
-            }
-        });
-    } catch (err) {
-        response.status(500)
-        response.send(err)
-        return
-    }
-});
-
-app.post('/collection/', authMiddleware, (request, response) => {
-    try {
-        const [ collection ] =  decodeBasicToken(request)
-        const { content } = request.body;
-        if ( ! collection || ! content ) {
-            response.status(400)
-            response.send("Must provide a valid authentication token and a 'content' JSON");
-            return
-        }
-        const newCollection = new Message(collection, content);
-        insertMessage(newCollection);
-        getLastMessages(1, (error, data)=>{
-            if ( error ) {
-                console.error(error);
-                response.status(500)
-                response.send("Database error.")
-                return
-            }
-            if ( data ) {
-                response.json(data);
-                response.send();
-                return
-            }
-        })
-    } catch (err) {
-        response.status(500)
-        response.send(err)
-        return
-    }
-});
-
-app.get('/collections/', authMiddleware, (request, response) => {
-    try {
-        getCollections(15, (error, data)=>{
-            if ( error ) {
-                console.error(error);
-                response.status(500)
-                response.send("Database error.")
-                return
-            }
-            if ( data ) {
-                response.json(data);
-                response.send();
-                return
-            }
-        })
-    } catch (err) {
-        response.status(500)
-        response.send(err)
-        return
-    }
-});
-
-app.listen(process.env.PORT, () => {
-    console.log(`Example app listening on http://127.0.0.1:${process.env.PORT}`)
-})
