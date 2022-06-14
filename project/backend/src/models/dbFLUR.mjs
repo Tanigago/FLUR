@@ -13,12 +13,11 @@ db.run(`
     CREATE TABLE
         IF NOT EXISTS
         users(
-            idUser INTEGER AUTO_INCREMENT NOT NULL,
+            idUser INTEGER PRIMARY KEY,
             name TEXT NOT NULL,
             email TEXT NOT NULL,
             password TEXT NOT NULL,
-            photoProfile TEXT,
-            PRIMARY KEY (idUser)
+            photoProfile TEXT
         )
 `);
 
@@ -26,16 +25,15 @@ db.run(`
     CREATE TABLE
         IF NOT EXISTS
         collection(
-            idCollection INTEGER AUTO_INCREMENT,
+            idCollection INTEGER PRIMARY KEY,
             nameCollection TEXT NOT NULL,
             waterproofCollection TEXT NOT NULL,
             warmCollection TEXT NOT NULL,
             seasonCollection TEXT NOT NULL,
-            userdId INTEGER,
+            userId INTEGER,
             collectionShoesId INTEGER,
-            FOREIGN KEY (userdId) REFERENCES users (idUser),
-            FOREIGN KEY (collectionShoesId) REFERENCES collections_shoes(idCollectionShoes),
-            PRIMARY KEY (idCollection)
+            FOREIGN KEY (userId) REFERENCES users (idUser),
+            FOREIGN KEY (collectionShoesId) REFERENCES collections_shoes(idCollectionShoes)
         )
 `);
 
@@ -43,13 +41,12 @@ db.run(`
     CREATE TABLE
         IF NOT EXISTS
         shoes(
-            idShoes INTEGER AUTO_INCREMENT,
+            idShoes INTEGER PRIMARY KEY,
             photoShoes TEXT NOT NULL,
             userdId INTEGER,
             collectionName INTEGER,
             FOREIGN KEY(collectionName) REFERENCES collections(nameCollection),
-            FOREIGN KEY (userdId) REFERENCES users (idUser),
-            PRIMARY KEY (idShoes)
+            FOREIGN KEY (userdId) REFERENCES users (idUser)
         )
 `);
 
@@ -57,12 +54,10 @@ db.run(`
     CREATE TABLE
         IF NOT EXISTS
         collections_shoes(
-            idCollectionShoes INTEGER AUTO_INCREMENT,
-            idCollection INTEGER AUTO_INCREMENT,
-            idShoes INTEGER AUTO_INCREMENT,
+            idCollectionShoes INTEGER PRIMARY KEY,
+            idCollection INTEGER,
+            idShoes INTEGER,
             FOREIGN KEY(idCollection) REFERENCES collections(idCollection),
             FOREIGN KEY(idShoes) REFERENCES shoes(idShoes)
-
-
         )
 `);

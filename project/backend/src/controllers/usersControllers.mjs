@@ -18,7 +18,21 @@ export function postUserController(request, response) {
 
 export function getUsersController(request, response) {
     db.all(
-        `SELECT id, name, password, email, photoProfile FROM users`,
+        `SELECT idUser, name, password, email, photoProfile FROM users`,
+        (err, data) => {
+            if (err) {
+                console.error(err);
+                response.sendStatus(500)
+            } else {
+                response.json(data)
+            }
+        }
+    )
+}
+
+export function getUserController(request, response) {
+    db.all(
+        `SELECT idUser, name, password, email, photoProfile FROM users WHERE idUser = ${request.params.id}`,
         (err, data) => {
             if (err) {
                 console.error(err);
@@ -32,7 +46,7 @@ export function getUsersController(request, response) {
 
 export function putUserController(request, response) {
     db.run(
-        `UPDATE users SET name = "${request.body.name}" WHERE id = "${request.body.id}"`,
+        `UPDATE users SET name = "${request.body.name}" WHERE idUser = ${request.body.id}`,
         (err) => {
             if (err) {
                 console.error(err);
@@ -46,7 +60,7 @@ export function putUserController(request, response) {
 
 export function deleteUserController(request, response) {
     db.run(
-        `DELETE FROM users WHERE id =`+request.body.id,
+        `DELETE FROM users WHERE idUser =`+request.body.id,
         (err) => {
             if (err) {
                 console.error(err);

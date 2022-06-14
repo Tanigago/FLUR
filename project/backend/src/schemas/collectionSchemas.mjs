@@ -1,8 +1,13 @@
-export const newCollectionSchema = {
-    $id: "/newCollection",
+export const collectionSchema = {
+    $id: "/collection",
     type: "object",
     properties: {
-        title: {
+        userId: {
+            description: "Identificador único",
+            type: "integer",
+            minimum: 0
+        },
+        nameCollection: {
             description: "Nombre de la colección",
             type: "string"
         },
@@ -13,13 +18,14 @@ export const newCollectionSchema = {
         },
         warmlvl: {
             description: "Task status",
-            type: "boolean"
+            enum: ["Bajo", "Medio", "Alto"]
         },
         season: {
             description: "Primavera",
-            type: "string"
+            enum: ["Primavera", "Verano", "Otoño", "Invierno"]
         }
 
     },
-    additionalProperties: false
+    additionalProperties: false,
+    required: ["userId", "nameCollection", "waterprooflvl", "warmlvl", "season"]
 }

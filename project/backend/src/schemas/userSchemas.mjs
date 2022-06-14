@@ -1,7 +1,12 @@
-export const newUserSchema = {
-    $id: "/newUser",
+export const userSchema = {
+    $id: "/user",
     type: "object",
     properties: {
+        idUser: {
+            description: "Identificador único",
+            type: "integer",
+            minimum: 0
+        },
         name: {
             description: "Name",
             type: "string"

@@ -2,9 +2,9 @@ import { collections } from "../models/collectionsModels.mjs"
 import { db } from "../models/dbFLUR.mjs"
 
 export function postCollectionController (request, response) {
-    const { description, done } = request.body;
+    const { nameCollection, waterprooflvl, warmlvl, season } = request.body;
     db.run(
-        `INSERT INTO collection(nameCollection, waterproofCollection, warmCollection, seasonCollection) VALUES ("${nameCollection}", "${waterproofCollection}", "${warmCollection}", "${seasonCollection}")`,
+        `INSERT INTO collection(nameCollection, waterprooflvl, warmlvl, season) VALUES ("${nameCollection}", "${waterprooflvl}", "${warmlvl}", "${season}")`,
         (err)=>{
             if (err) {
                 console.error(err);
@@ -18,7 +18,7 @@ export function postCollectionController (request, response) {
 
 export function getCollectionsController (request, response) {
     db.all(
-        `SELECT id, nameCollection, waterproofCollection, warmCollection, seasonCollection FROM collections`,
+        `SELECT id, nameCollection, waterprooflvl, warmlvl, season FROM collections`,
 
         (err,data)=>{
             if ( err ) {
