@@ -34,6 +34,5 @@ export function authMiddleware(request, response, next) {
     } catch (err) {
         console.error(err);
         response.sendStatus(401)
-        return;
     }
 }

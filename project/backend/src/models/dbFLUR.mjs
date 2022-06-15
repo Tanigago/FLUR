@@ -27,9 +27,9 @@ db.run(`
         collection(
             idCollection INTEGER PRIMARY KEY,
             nameCollection TEXT NOT NULL,
-            waterproofCollection TEXT NOT NULL,
-            warmCollection TEXT NOT NULL,
-            seasonCollection TEXT NOT NULL,
+            waterprooflvl TEXT NOT NULL,
+            warmlvl TEXT NOT NULL,
+            season TEXT NOT NULL,
             userId INTEGER,
             collectionShoesId INTEGER,
             FOREIGN KEY (userId) REFERENCES users (idUser),

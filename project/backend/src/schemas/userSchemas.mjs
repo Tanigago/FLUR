@@ -2,11 +2,6 @@ export const userSchema = {
     $id: "/user",
     type: "object",
     properties: {
-        idUser: {
-            description: "Identificador único",
-            type: "integer",
-            minimum: 0
-        },
         name: {
             description: "Name",
             type: "string"
@@ -25,5 +20,6 @@ export const userSchema = {
         }
 
     },
-    additionalProperties: false
+    additionalProperties: false,
+    required: [ "name", "email", "password"]
 }

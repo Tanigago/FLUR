@@ -1,7 +1,7 @@
 import { validate } from "jsonschema";
 
-import { collectionSchema } from "../schemas/collectionSchemas.mjs";
 import { userSchema } from "../schemas/userSchemas.mjs";
+import { collectionSchema, putCollectionSchema } from "../schemas/collectionSchemas.mjs";
 
 export function validateUserJSON(request, response, next) {
     try {
@@ -26,6 +26,21 @@ export function validateCollectionJSON(request, response, next) {
         } else {
             response.status(400);
             response.send("Invalid user data provided");
+            console.error("Invalid user data provided");
+        }
+    } catch (err) {
+        throw "Error validating data"
+    }
+}
+
+export function validatePutCollectionJSON(request, response, next) {
+    try {
+        const validation = validate(request.body, putCollectionSchema)
+        if (validation.valid) {
+            next();
+        } else {
+            response.status(400);
+            response.send("Invalid user data provided (put)");
             console.error("Invalid user data provided");
         }
     } catch (err) {

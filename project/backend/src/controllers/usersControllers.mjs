@@ -46,7 +46,7 @@ export function getUserController(request, response) {
 
 export function putUserController(request, response) {
     db.run(
-        `UPDATE users SET name = "${request.body.name}" WHERE idUser = ${request.body.id}`,
+        `UPDATE users SET name = "${request.body.name}", email ="${request.body.email}", photoProfile = "${request.body.photoProfile}" WHERE idUser = ${request.body.id}`,
         (err) => {
             if (err) {
                 console.error(err);

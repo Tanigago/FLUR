@@ -2,9 +2,10 @@ import { collections } from "../models/collectionsModels.mjs"
 import { db } from "../models/dbFLUR.mjs"
 
 export function postCollectionController (request, response) {
-    const { nameCollection, waterprooflvl, warmlvl, season } = request.body;
+    const { userId, collectionShoesId, nameCollection, waterprooflvl, warmlvl, season } = request.body;
     db.run(
-        `INSERT INTO collection(nameCollection, waterprooflvl, warmlvl, season) VALUES ("${nameCollection}", "${waterprooflvl}", "${warmlvl}", "${season}")`,
+        `INSERT INTO collection(userId, collectionShoesId, nameCollection, waterprooflvl, warmlvl, season) VALUES (?, ?,?,?,?,?)`,
+        [userId, collectionShoesId, nameCollection, waterprooflvl, warmlvl, season],
         (err)=>{
             if (err) {
                 console.error(err);
@@ -18,7 +19,7 @@ export function postCollectionController (request, response) {
 
 export function getCollectionsController (request, response) {
     db.all(
-        `SELECT id, nameCollection, waterprooflvl, warmlvl, season FROM collections`,
+        `SELECT idCollection, userId, collectionShoesId, nameCollection, waterprooflvl, warmlvl, season FROM collection`,
 
         (err,data)=>{
             if ( err ) {
@@ -44,20 +45,35 @@ export function getCollectionController (request, response) {
 }
 
 
-export function putCollectionController (request, response) {
-    const updatedCollection = request.body;
-    const oldCollectionIdx = collections.findIndex(
-        item => item.id === updatedCollection.id
+export function putCollectionController(request, response) {
+    db.run(
+        `UPDATE collection
+        SET nameCollection = "${request.body.nameCollection}",
+            waterprooflvl ="${request.body.waterprooflvl}",
+            warmlvl ="${request.body.warmlvl}",
+            season ="${request.body.season}"
+        WHERE idCollection = ${request.body.id}`,
+        (err) => {
+            if (err) {
+                console.error(err);
+                response.sendStatus(500)
+            } else {
+                response.sendStatus(200)
+            }
+        }
     )
-    tasks[oldCollectionIdx] = updatedCollection;
-    response.sendStatus(200);
 }
 
-export function deleteCollectionController (request, response) {
-    const updatedCollection = request.body;
-    const oldCollectionIdx = tasks.findIndex(
-        item => item.id === updatedCollection.id
+export function deleteCollectionController(request, response) {
+    db.run(
+        `DELETE FROM collection WHERE idCollection =`+request.body.id,
+        (err) => {
+            if (err) {
+                console.error(err);
+                response.sendStatus(500)
+            } else {
+                response.sendStatus(200)
+            }
+        }
     )
-    tasks.splice(oldCollectionIdx,1);
-    response.sendStatus(200)
 }

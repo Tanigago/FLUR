@@ -7,6 +7,11 @@ export const collectionSchema = {
             type: "integer",
             minimum: 0
         },
+        collectionShoesId: {
+            description: "Identificador del calzado",
+            typer: "integer",
+            minimum: 0
+        },
         nameCollection: {
             description: "Nombre de la colección",
             type: "string"
@@ -14,18 +19,59 @@ export const collectionSchema = {
         waterprooflvl: {
             description: "Bajo",
             type: "string",
-            enum: ["Bajo", "Medio", "Alto"]
+            enum: ["bajo", "medio", "alto"]
         },
         warmlvl: {
             description: "Task status",
-            enum: ["Bajo", "Medio", "Alto"]
+            type: "string",
+            enum: ["bajo", "medio", "alto"]
         },
         season: {
             description: "Primavera",
-            enum: ["Primavera", "Verano", "Otoño", "Invierno"]
+            type: "string",
+            enum: ["primavera", "verano", "otoño", "invierno"]
         }
 
     },
     additionalProperties: false,
-    required: ["userId", "nameCollection", "waterprooflvl", "warmlvl", "season"]
+    required: ["userId", "collectionShoesId", "nameCollection", "waterprooflvl", "warmlvl", "season"]
+}
+
+export const putCollectionSchema = {
+    $id: "/collection",
+    type: "object",
+    properties: {
+        userId: {
+            description: "Identificador único",
+            type: "integer",
+            minimum: 0
+        },
+        collectionShoesId: {
+            description: "Identificador del calzado",
+            typer: "integer",
+            minimum: 0
+        },
+        nameCollection: {
+            description: "Nombre de la colección",
+            type: "string"
+        },
+        waterprooflvl: {
+            description: "Bajo",
+            type: "string",
+            enum: ["bajo", "medio", "alto"]
+        },
+        warmlvl: {
+            description: "Task status",
+            type: "string",
+            enum: ["bajo", "medio", "alto"]
+        },
+        season: {
+            description: "Primavera",
+            type: "string",
+            enum: ["primavera", "verano", "otoño", "invierno"]
+        }
+
+    },
+    additionalProperties: false,
+    required: ["nameCollection", "waterprooflvl", "warmlvl", "season"]
 }
