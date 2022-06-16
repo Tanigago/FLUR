@@ -30,6 +30,9 @@ try {
     app.put(PATH_PREFIX + "/item/", authMiddleware, jsonParser, validatePutItemJSON, putItemController);
     app.delete(PATH_PREFIX + "/item/", authMiddleware, jsonParser, deleteItemController);
 
+    app.post(PATH_PREFIX + "/uploads/:imgId", authMiddleware, );
+    app.get(PATH_PREFIX + "/images/:imgId", authMiddleware );
+
     app.listen(process.env.PORT || 3000, () => {
         console.log("Express running...");
     });
