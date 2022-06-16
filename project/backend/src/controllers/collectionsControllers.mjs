@@ -32,16 +32,18 @@ export function getCollectionsController (request, response) {
     )
 }
 
-export function getCollectionController (request, response) {
-    try {
-        const collection = collections.find(
-            item => item.id === parseInt(request.params.id)
-        )
-        if ( task ) response.json(task)
-        else response.sendStatus(404);
-    } catch (err) {
-        response.sendStatus(400)
-    }
+export function getCollectionController(request, response) {
+    db.all(
+        `SELECT idCollection, userId, collectionShoesId, nameCollection, waterprooflvl, warmlvl, season FROM collection WHERE idCollection = ${request.params.id}`,
+        (err, data) => {
+            if (err) {
+                console.error(err);
+                response.sendStatus(500)
+            } else {
+                response.json(data)
+            }
+        }
+    )
 }
 
 
@@ -52,7 +54,7 @@ export function putCollectionController(request, response) {
             waterprooflvl ="${request.body.waterprooflvl}",
             warmlvl ="${request.body.warmlvl}",
             season ="${request.body.season}"
-        WHERE idCollection = ${request.body.id}`,
+        WHERE idCollection = ${request.body.idCollection}`,
         (err) => {
             if (err) {
                 console.error(err);

@@ -41,6 +41,11 @@ export const putCollectionSchema = {
     $id: "/collection",
     type: "object",
     properties: {
+        idCollection: {
+            description: "Identificador único",
+            type: "integer",
+            minimum: 0
+        },
         userId: {
             description: "Identificador único",
             type: "integer",

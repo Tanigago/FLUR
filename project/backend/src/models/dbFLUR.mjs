@@ -43,10 +43,10 @@ db.run(`
         shoes(
             idShoes INTEGER PRIMARY KEY,
             photoShoes TEXT NOT NULL,
-            userdId INTEGER,
+            userId INTEGER,
             collectionName INTEGER,
             FOREIGN KEY(collectionName) REFERENCES collections(nameCollection),
-            FOREIGN KEY (userdId) REFERENCES users (idUser)
+            FOREIGN KEY (userId) REFERENCES users (idUser)
         )
 `);
 

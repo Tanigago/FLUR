@@ -1,9 +1,10 @@
 import { db } from "../models/dbFLUR.mjs"
 
-export function postUserController(request, response) {
-    const { name, password, email, photoProfile } = request.body;
+export function postItemController(request, response) {
+    const { idShoes, photoShoes, userId, collectionName } = request.body;
     db.run(
-        `INSERT INTO users(name, password, email, photoProfile) VALUES ("${name}", "${password}", "${email}", "${photoProfile}")`,
+        `INSERT INTO shoes(photoShoes, userId, collectionName) VALUES (?,?,?)`,
+        [photoShoes, collectionName, userId],
         (err) => {
             if (err) {
                 console.error(err);
@@ -15,9 +16,10 @@ export function postUserController(request, response) {
     )
 }
 
-export function getUsersController(request, response) {
+export function getItemsController(request, response) {
     db.all(
-        `SELECT idUser, name, password, email, photoProfile FROM users`,
+        `SELECT idShoes, photoShoes, userId, collectionName FROM shoes`,
+
         (err, data) => {
             if (err) {
                 console.error(err);
@@ -29,9 +31,9 @@ export function getUsersController(request, response) {
     )
 }
 
-export function getUserController(request, response) {
+export function getItemController(request, response) {
     db.all(
-        `SELECT idUser, name, password, email, photoProfile FROM users WHERE idUser = ${request.params.id}`,
+        `SELECT idShoes, photoShoes, userId, collectionName FROM shoes WHERE idShoes = ${request.params.id}`,
         (err, data) => {
             if (err) {
                 console.error(err);
@@ -43,9 +45,14 @@ export function getUserController(request, response) {
     )
 }
 
-export function putUserController(request, response) {
+
+export function putItemController(request, response) {
     db.run(
-        `UPDATE users SET name = "${request.body.name}", email ="${request.body.email}", photoProfile = "${request.body.photoProfile}" WHERE idUser = ${request.body.id}`,
+        `UPDATE shoes
+        SET photoShoes = "${request.body.photoShoes}",
+            collectionName ="${request.body.collectionName}",
+            userId ="${request.body.userId}"
+        WHERE idShoes = ${request.body.idShoes}`,
         (err) => {
             if (err) {
                 console.error(err);
@@ -57,9 +64,9 @@ export function putUserController(request, response) {
     )
 }
 
-export function deleteUserController(request, response) {
+export function deleteItemController(request, response) {
     db.run(
-        `DELETE FROM users WHERE idUser =`+request.body.id,
+        `DELETE FROM shoes WHERE idShoes =` + request.body.idShoes,
         (err) => {
             if (err) {
                 console.error(err);
