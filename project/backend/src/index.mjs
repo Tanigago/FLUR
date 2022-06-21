@@ -13,15 +13,13 @@ const PATH_PREFIX = "/api/v0.0"
 const app = express();
 
 if (process.env.NODE_ENV !== "production") config()
-
+/*
 const s3 = new aws.S3({
     apiVersion: process.env.S3_API_VERSION,
     endpoint: process.env.S3_ENDPOINT,
     signatureVersion: process.env.S3_SIGNATURE_VERSION,
 })
-
-
-
+*/
 try {
     const jsonParser = express.json();
 
@@ -43,14 +41,34 @@ try {
     app.put(PATH_PREFIX + "/item/", authMiddleware, jsonParser, validatePutItemJSON, putItemController);
     app.delete(PATH_PREFIX + "/item/", authMiddleware, jsonParser, deleteItemController);
 
-    app.post(PATH_PREFIX + "/upload/:imgId", authMiddleware, async (req, res) => {
+    //app.post(PATH_PREFIX + "/upload/:imgId", authMiddleware, async (req, res) => {
+    app.post(PATH_PREFIX + "/upload/:imgId", async (req, res) => {
         try {
 
-            const s3ObjectKey = Date.now().toString()
+            const accessKeyId = "jwrkdgdo2xb4k43vbka76eh4cqya";
+            const secretAccessKey = "j3bt6uptkjc5zudv6l5wgken4gi5nq5n3rgf7yiwqfu5dyw4hej6g";
+            const endpoint = "https://gateway.storjshare.io";
+
+            const s3 = new aws.S3({
+                accessKeyId,
+                secretAccessKey,
+                endpoint,
+                s3ForcePathStyle: true,
+                signatureVersion: "v4",
+                connectTimeout: 0,
+                httpOptions: { timeout: 0 },
+                ACL:'public-read'
+            });
+
+
+            const { Buckets } = await s3.listBuckets({}).promise();
+            
+            console.log(Buckets);
+              
 
             const s3Response = s3.upload({
                 Bucket: process.env.S3_BUCKET,
-                Key: s3ObjectKey,
+                Key: req.params.imgId,
                 Body: req,
                 ContentType: req.headers['content-type'],
                 ContentLength: req.headers['content-length']
@@ -58,12 +76,9 @@ try {
 
             const data = await s3Response.promise()
 
-            const imgIdx = mockedDB.findIndex(
-                item => item.id === req.params.imgId
-            )
-
-            mockedDB[imgIdx].imageKey = data.Key
-            mockedDB[imgIdx].imagePublicURL = data.Location
+            //mockedDB[imgIdx].imageKey = data.Key
+            //mockedDB[imgIdx].imagePublicURL = data.Location
+            console.log(data.Location);
 
             res.sendStatus(201)
 
