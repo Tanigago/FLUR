@@ -62,6 +62,7 @@ try {
 
 
             const { Buckets } = await s3.listBuckets({}).promise();
+            s3.putObjectAcl()
             
             console.log(Buckets);
               
