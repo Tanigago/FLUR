@@ -1,9 +1,35 @@
 import style from './registerStyle.module.css';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+import { postUser } from '../../fetchLibrary';
+import { useState } from 'react';
 
 function Register () {
-    
+
+    const navigate = useNavigate()
+
+    const [nombre, setNombre] = useState()
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+
+    function onChangeNombre (ev) {
+        setNombre(ev.target.value)
+    }
+
+    function onChangeEmail (ev) {
+        setEmail(ev.target.value)
+    }
+
+    function onChangePassword (ev) {
+        setPassword(ev.target.value)
+    }
+
+    function onSubmit () {
+        postUser(nombre, email, password)
+        // navigate("/")
+    }
+
     return (
         <div className={style.bodyRegister}>
             <div className={style.textRegister}>
@@ -17,16 +43,18 @@ function Register () {
             </div>
 
             <div className={style.inputsRegister}>
-                <input type="name" name="nombre" placeholder='Nombre' />
-                <input type="email" name="email" placeholder='Email' />
-                <input type="password" name="password" placeholder="Contraseña" />
+                <form  onSubmit={onSubmit}>
+                    <input type="text" name="nombre" placeholder='Nombre' value={nombre} onChange={onChangeNombre}/>
+                    <input type="email" name="email" placeholder='Email' value={email} onChange={onChangeEmail}/>
+                    <input type="password" name="password" placeholder="Contraseña" value={password} onChange={onChangePassword} />
+                    <div className={style.buttonRegister}>
+                        <button className={style.registerButton}>Regístrate</button>
+                    </div>
+                </form>
+
             </div>
 
-            <div className={style.buttonRegister}>
-                <Link to="/">
-                    <button className={style.registerButton}>Regístrate</button>
-                </Link>
-            </div>
+
 
             <div className={style.lastLineReg}>
                 <p>¿Ya eres miembro?</p><Link to='/login/' className={style.loginLink}>Inicia sesión</Link>
