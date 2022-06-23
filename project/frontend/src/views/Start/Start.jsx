@@ -15,12 +15,16 @@ function Start () {
             </div>
 
             <div className={style.buttonsStart}>
-                <Link to="/register/">
-                    <button className={style.registerButton}>Regístrate</button>
-                </Link>
-                <Link to="/signin/">
-                    <button className={style.signinButton}>Inicia sesión</button>
-                </Link>
+                <div className={style.linkRegister}>
+                    <Link to="/register/">
+                        <button className={style.registerButton}>Regístrate</button>
+                    </Link>
+                </div>
+                <div  className={style.linkRegister}>
+                    <Link to="/login/">
+                        <button className={style.signinButton}>Inicia sesión</button>
+                    </Link>
+                </div>
             </div>
         </div>
     )

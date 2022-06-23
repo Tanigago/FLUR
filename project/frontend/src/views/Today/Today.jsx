@@ -10,7 +10,7 @@ function Today({tagsArray}) {
     return (
         <div className={style.bodyToday}>
             <div className={style.apiWeather}>
-                <img src={apiWeather} alt='Weather' />
+                <img src={apiWeather} alt='Weather' />               
             </div>    
 
             <div className={style.horizontalTags}>

@@ -1,8 +1,35 @@
 import style from './loginStyle.module.css';
 
-import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
+
+import { Link, useNavigate } from 'react-router-dom';
+import { getUser } from '../../fetchLibrary';
+import { useState } from 'react';
 
 function Login() {
+
+    const navigate = useNavigate()
+
+    const [email, setEmail] = useState()
+    const [password, setPassword] = useState()
+
+    function onChangeEmail (ev) {
+        setEmail(ev.target.value)
+    }
+
+    function onChangePassword (ev) {
+        setPassword(ev.target.value)
+    }
+
+    function onSubmit () {
+        getUser(email, password)
+        swal({
+            title: "¡Genial!",
+            text: "Adelante ;)",
+            icon: "success",
+        });
+        navigate("/home/")
+    }
 
     return (
         <div className={style.bodyLogin}>
@@ -13,18 +40,16 @@ function Login() {
             </div>
 
             <div className={style.inputsLogin}>
-                <input type="email" name="email" placeholder='Email' />
-                <input type="password" name="password" placeholder="Contraseña" />
-            </div>
-
-            <div className={style.buttonLogin}>
-                <Link to="/">
-                    <button className={style.signinButton}>Inicia sesión</button>
-                </Link>
-            </div>
-            
-            <div className={style.lastLineLog}>
-                <p>¿Aún no eres miembro?</p><Link to='/register/' className={style.registerLink}>Regístrate</Link>
+                <form onSubmit={onSubmit}>
+                    <input type="email" name="email" placeholder='Email' value={email} onChange={onChangeEmail}/>
+                    <input type="password" name="password" placeholder="Contraseña" value={password} onChange={onChangePassword}/>
+                    <div className={style.buttonLogin}>
+                        <button className={style.signinButton}>Inicia sesión</button>
+                    </div>
+                    <div className={style.lastLineLog}>
+                        <p>¿Aún no eres miembro?</p><Link to='/register/' className={style.registerLink}>Regístrate</Link>
+                    </div>
+                </form>
             </div>
         </div>
     )

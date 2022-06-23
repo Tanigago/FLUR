@@ -104,3 +104,8 @@
     box-shadow: none;
     transform: translateY(0);
 }
+
+.linkRegister {
+    padding-bottom: 20px;
+    width: 220px;
+}

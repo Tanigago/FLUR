@@ -41,59 +41,49 @@ try {
     app.put(PATH_PREFIX + "/item/", authMiddleware, jsonParser, validatePutItemJSON, putItemController);
     app.delete(PATH_PREFIX + "/item/", authMiddleware, jsonParser, deleteItemController);
 
-    //app.post(PATH_PREFIX + "/upload/:imgId", authMiddleware, async (req, res) => {
-    app.post(PATH_PREFIX + "/upload/:imgId", async (req, res) => {
+
+    app.post("/upload/:fileId", async (req, res)=>{
         try {
 
-            const accessKeyId = "jwrkdgdo2xb4k43vbka76eh4cqya";
-            const secretAccessKey = "j3bt6uptkjc5zudv6l5wgken4gi5nq5n3rgf7yiwqfu5dyw4hej6g";
+            const accessKeyId = "jwam7w5d7bdobgnjpijjfhsqzzyq";
+            const secretAccessKey = "jzd5zk3un2urva7fp72ic336two6mizd5zmk2gffvqmsv3ssd27uo";
             const endpoint = "https://gateway.storjshare.io";
-
+    
             const s3 = new aws.S3({
-                accessKeyId,
-                secretAccessKey,
-                endpoint,
+                endpoint: process.env.S3_ENDPOINT,
                 s3ForcePathStyle: true,
-                signatureVersion: "v4",
+                signatureVersion: process.env.S3_SIGNATURE_VERSION,
                 connectTimeout: 0,
                 httpOptions: { timeout: 0 },
-                ACL:'public-read'
             });
-
-
-            const { Buckets } = await s3.listBuckets({}).promise();
-            s3.putObjectAcl()
-            
-            console.log(Buckets);
-              
-
+    
             const s3Response = s3.upload({
                 Bucket: process.env.S3_BUCKET,
-                Key: req.params.imgId,
+                Key: req.params.fileId,
                 Body: req,
                 ContentType: req.headers['content-type'],
-                ContentLength: req.headers['content-length']
+                ContentLength: req.headers['content-length'],
             })
-
+    
             const data = await s3Response.promise()
-
-            //mockedDB[imgIdx].imageKey = data.Key
-            //mockedDB[imgIdx].imagePublicURL = data.Location
-            console.log(data.Location);
-
+            console.log(data);
+    
             res.sendStatus(201)
-
+    
+    
         } catch (err) {
             console.error(err)
             res.sendStatus(500)
         }
-
     })
+    
+   
     app.get(PATH_PREFIX + "/images/:imgId", authMiddleware);
 
-    app.listen(process.env.PORT || 3000, () => {
+    app.listen(process.env.PORT || 4000, () => {
         console.log("Express running...");
     });
+
 } catch (err) {
     console.error(err);
 }

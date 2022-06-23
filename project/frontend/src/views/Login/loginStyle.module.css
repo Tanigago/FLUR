@@ -11,18 +11,19 @@
 }
 
 .textLogin {
-    line-height: 8px;
+    line-height: 5%;
     text-align-last: center;
     padding-bottom: 80px;
+    padding-top: 10%;
 }
 
 .inputsLogin{
-    max-width: min-content;
-    padding-bottom: 80px;
+    width: 35%;
+    text-align: -webkit-center;
 }
 
 .buttonLogin{
-    width: 33%;
+    padding-top: 80px;
 }
 
 .signinButton {
@@ -73,6 +74,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 }
 
 .registerLink{

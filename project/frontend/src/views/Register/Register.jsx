@@ -1,6 +1,7 @@
 import style from './registerStyle.module.css';
 
 import { Link, useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 
 import { postUser } from '../../fetchLibrary';
 import { useState } from 'react';
@@ -27,7 +28,12 @@ function Register () {
 
     function onSubmit () {
         postUser(nombre, email, password)
-        // navigate("/")
+        swal({
+            title: "¡Genial!",
+            text: "Inicia sesión y disfruta ;)",
+            icon: "success",
+        });
+        navigate("/login/")
     }
 
     return (
@@ -50,14 +56,10 @@ function Register () {
                     <div className={style.buttonRegister}>
                         <button className={style.registerButton}>Regístrate</button>
                     </div>
+                    <div className={style.lastLineReg}>
+                        <p>¿Ya eres miembro?</p><Link to='/login/' className={style.loginLink}>Inicia sesión</Link>
+                    </div>
                 </form>
-
-            </div>
-
-
-
-            <div className={style.lastLineReg}>
-                <p>¿Ya eres miembro?</p><Link to='/login/' className={style.loginLink}>Inicia sesión</Link>
             </div>
         </div>
     )
