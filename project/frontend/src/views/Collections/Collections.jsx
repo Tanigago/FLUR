@@ -1,6 +1,7 @@
 import styles from "./collectionsStyle.module.css"
 import NewSquare from "../../components/MultiSquare/NewSquare/NewSquare";
 import CollectionSquare from "../../components/MultiSquare/CollectionSquare/CollectionSquare";
+import { Link } from "react-router-dom";
 
 function Collections({collectionArray}) {
     return(
@@ -10,7 +11,7 @@ function Collections({collectionArray}) {
                         item => <CollectionSquare collection={item}/>
                 )}
             </ul>
-            <NewSquare/>
+            <Link to="/newcollection/"><NewSquare/></Link>
         </div>
 
     )

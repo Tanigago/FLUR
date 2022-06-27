@@ -61,7 +61,7 @@ function App() {
           <Route path='/home/' element={<Home/>}/>
           <Route path='/today/' element={<Today tagsArray={states.colecciones}/>}/>
           <Route path='/collections/' element={<Collections collectionArray={states.colecciones}/>}/>
-          <Route path='/collection/' element={<Collection/>}/>
+          <Route path='/collection/:id' element={<Collection/>}/>
           <Route path='/collectionhorlist/' element={<CollectionHorList collectionArray={states.colecciones}/>}/> 
           <Route path='/addtocollection/' element={<AddtoCollection  collectionArray={states.colecciones}/>}/>
           <Route path='/editCollection/' element={<EditCollection/>}/>

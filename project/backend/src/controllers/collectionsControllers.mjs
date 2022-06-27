@@ -11,7 +11,9 @@ export function postCollectionController (request, response) {
                 console.error(err);
                 response.sendStatus(500)
             } else {
-                response.sendStatus(201)
+                db.get("SELECT last_insert_rowid()",(err, data) =>{
+                response.json(data)
+                })
             }
         }
     )

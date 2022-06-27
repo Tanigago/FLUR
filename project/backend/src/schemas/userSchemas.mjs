@@ -13,12 +13,7 @@ export const userSchema = {
         password: {
             description: "Password",
             type: "string"
-        },
-        photoProfile: {
-            description: "Photo profile",
-            type: "string"
         }
-
     },
     additionalProperties: false,
     required: [ "name", "email", "password"]

@@ -18,7 +18,8 @@ export function authMiddleware(request, response, next) {
         if (method != "Basic") throw "El método de autorización no furula, usa Basic neno."
 
         db.get(
-            `SELECT * FROM users WHERE name = "${name}" AND password = "${password}"`,
+            `SELECT * FROM users WHERE name = ? AND password = ?`,
+            [name, password],
             (err, data) => {
                 if (err) {
                     response.status(500);
@@ -26,13 +27,14 @@ export function authMiddleware(request, response, next) {
                 } else if (data) {
                     next();
                 } else {
-                    throw "Usuario inexistente o contraseña incorrecta"
+                    console.error("Usuario inexistente o contraseña incorrecta")
+                    response.sendStatus(401)
                 }
             }
         )
      
     } catch (err) {
         console.error(err);
-        response.sendStatus(401)
+        response.sendStatus(500)
     }
 }
