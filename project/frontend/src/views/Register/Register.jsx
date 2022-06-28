@@ -29,7 +29,7 @@ function Register () {
     function onSubmit () {
         postUser(nombre, email, password)
         swal({
-            title: "¡Genial!",
+            title: "¡Te has registrado!",
             text: "Inicia sesión y disfruta ;)",
             icon: "success",
         });

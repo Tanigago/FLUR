@@ -1,4 +1,36 @@
 import { db } from "../models/dbFLUR.mjs"
+import jwt from "jsonwebtoken";
+
+function decodeBasicToken(headerContent) {
+    try {
+        const [method, token] = headerContent.split(" ");
+        const tokenString = atob(token);
+        const [name, password] = tokenString.split(":");
+        return { method, name, password }
+    } catch (error) {
+        throw "Autenticación pocha";
+    }
+}
+
+export function loginUserController (request, response) {
+    const [ username, password ] = decodeBasicToken(req)
+    if ( 
+        username === user.username && password === user.password
+    ) {
+        const token = jwt.sign(
+            {
+                level: user.accessLevel
+            },
+            secret,
+            {
+                expiresIn: "1h",
+            }
+        )
+        res.send(token)
+    } else {
+        res.sendStatus(401)
+    }
+}
 
 export function postUserController(request, response) {
     const { name, password, email } = request.body;
@@ -37,7 +69,7 @@ export function getUserController(request, response) {
                 console.error(err);
                 response.sendStatus(500)
             } else {
-                response.json(data)
+                response.json(data)//token
             }
         }
     )

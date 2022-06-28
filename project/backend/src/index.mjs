@@ -5,7 +5,7 @@ import aws from 'aws-sdk'
 import { authMiddleware } from "./middleware/authorization.mjs";
 import { validateCollectionJSON, validateItemJSON, validatePutCollectionJSON, validatePutItemJSON, validateUserJSON } from "./middleware/jsonValidator.mjs";
 
-import { postUserController, getUsersController, putUserController, deleteUserController, getUserController } from "./controllers/usersControllers.mjs";
+import { postUserController, getUsersController, putUserController, deleteUserController, getUserController, loginUserController } from "./controllers/usersControllers.mjs";
 import { deleteCollectionController, getCollectionController, getCollectionsController, postCollectionController, putCollectionController } from "./controllers/collectionsControllers.mjs";
 import { deleteItemController, getItemController, getItemsController, postItemController, putItemController } from "./controllers/itemsControllers.mjs";
 
@@ -22,6 +22,8 @@ const s3 = new aws.S3({
 */
 try {
     const jsonParser = express.json();
+
+    app.get(PATH_PREFIX + "/login/", jsonParser, loginUserController)
 
     app.post(PATH_PREFIX + "/user/", jsonParser, validateUserJSON, postUserController);
     app.get(PATH_PREFIX + "/user/:id", jsonParser, getUserController);

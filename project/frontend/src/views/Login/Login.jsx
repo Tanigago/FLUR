@@ -1,7 +1,5 @@
 import style from './loginStyle.module.css';
 
-import swal from 'sweetalert';
-
 import { Link, useNavigate } from 'react-router-dom';
 import { getUser } from '../../fetchLibrary';
 import { useState } from 'react';
@@ -23,11 +21,6 @@ function Login() {
 
     function onSubmit () {
         getUser(email, password)
-        swal({
-            title: "¡Genial!",
-            text: "Adelante ;)",
-            icon: "success",
-        });
         navigate("/home/")
     }
 

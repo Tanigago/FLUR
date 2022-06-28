@@ -1,5 +1,5 @@
 import { db } from "../models/dbFLUR.mjs"
-
+/*
 function decodeAuthBasic(headerContent) {
     try {
         const [method, token] = headerContent.split(" ");
@@ -10,7 +10,20 @@ function decodeAuthBasic(headerContent) {
         throw "Autenticación pocha";
     }
 }
+*/
 
+export function authMiddleware (req, res, next) {
+    try {
+        const [ method, token ] = req.headers.authorization.split(" ")
+        const { level } = jwt.verify(token,secret)
+        res.locals.level = level // Paso el user name para uso en los controllers
+        next()
+    } catch (err) {
+        res.sendStatus(401)
+    }
+}
+
+/*
 export function authMiddleware(request, response, next) {
     try {
         const { method, name, password } = decodeAuthBasic(request.headers.authorization);
@@ -38,3 +51,4 @@ export function authMiddleware(request, response, next) {
         response.sendStatus(500)
     }
 }
+*/

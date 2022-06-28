@@ -41,7 +41,7 @@ h4{
     min-inline-size: fit-content;
 }
 
-input[type="done"] {
+button[type="done"] {
     appearance: none;
     background-color: transparent;
     border: 2px solid #1A1A1A;
@@ -69,23 +69,23 @@ input[type="done"] {
     will-change: transform;
 }
 
-input[type="done"]:disabled {
+button[type="done"]:disabled {
     pointer-events: none;
 }
 
-input[type="done"]:hover {
+button[type="done"]:hover {
     color: #fff;
     background-color: #1A1A1A;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
 }
 
-input[type="done"]:active {
+button[type="done"]:active {
     box-shadow: none;
     transform: translateY(0);
 }
 
-input[type="cancel"] {
+button[type="button"] {
     appearance: none;
     background-color: #1A1A1A;
     border: 2px solid #1A1A1A;
@@ -113,18 +113,18 @@ input[type="cancel"] {
     will-change: transform;
 }
 
-input[type="cancel"]:disabled {
+button[type="button"]:disabled {
     pointer-events: none;
 }
 
-input[type="cancel"]:hover {
+button[type="button"]:hover {
     color: #1A1A1A;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
 }
 
-input[type="cancel"]:active {
+button[type="button"]:active {
     box-shadow: none;
     transform: translateY(0);
 }

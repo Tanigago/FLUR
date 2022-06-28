@@ -5,7 +5,7 @@ export const Context = createContext();
 export function ContextProvider ( {children} ) {
 
     const [ colecciones, setColecciones ] = useState([
-        {    
+        /*{    
             tagtext: "Verano",
             tagpath: "/verano/",
             count: 16,
@@ -25,7 +25,7 @@ export function ContextProvider ( {children} ) {
             count: 3,
             pluralize: true,
             tagdelbutton: false,
-        }
+        }*/
     ]);
 
     const [ calzados, setCalzados ] = useState([

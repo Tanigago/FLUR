@@ -18,7 +18,7 @@ export async function postUser (nombre, correo, pass) {
 
 export async function getUser (correo, pass) {
     const res = await fetch('http://localhost:3000/api/v0.0/user/', {
-        method: 'GET',
+        method: 'POST',
         headers: {
             "Content-Type": "application/json",
         },
