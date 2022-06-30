@@ -20,6 +20,9 @@ const s3 = new aws.S3({
     signatureVersion: process.env.S3_SIGNATURE_VERSION,
 })
 */
+
+app.use("/",express.static("../frontend/build/", {index: "index.html"}))
+
 try {
     const jsonParser = express.json();
 
@@ -46,10 +49,6 @@ try {
 
     app.post("/upload/:fileId", async (req, res)=>{
         try {
-
-            const accessKeyId = "jwam7w5d7bdobgnjpijjfhsqzzyq";
-            const secretAccessKey = "jzd5zk3un2urva7fp72ic336two6mizd5zmk2gffvqmsv3ssd27uo";
-            const endpoint = "https://gateway.storjshare.io";
     
             const s3 = new aws.S3({
                 endpoint: process.env.S3_ENDPOINT,
@@ -82,7 +81,7 @@ try {
    
     app.get(PATH_PREFIX + "/images/:imgId", authMiddleware);
 
-    app.listen(process.env.PORT || 4000, () => {
+    app.listen(process.env.PORT || 4001, () => {
         console.log("Express running...");
     });
 
