@@ -1,7 +1,7 @@
 import style from './App.css';
 
-import { useContext, useEffect, useState } from 'react';
-import { Context } from './storage/Sharedtorage';
+import { useContext } from 'react';
+import { Context } from './services/SharedStorage';
 import { Link, Route, Routes } from 'react-router-dom';
 
 import AddtoCollection from './views/AddtoCollection/AddtoCollection';
@@ -67,7 +67,7 @@ function App() {
           <Route path='/editCollection/' element={<EditCollection/>}/>
           <Route path='/newCollection/' element={<NewCollection/>}/>
           <Route path='/editItem/' element={<EditItem tagsArray={states.colecciones}/>}/>
-          <Route path='/profile/' element={<Profile user={states.nombres[0]}/>}/>
+          <Route path='/profile/' element={<Profile user={states.userData[0]}/>}/>
           <Route path='/tag/' element={<Tag coleccion={states.colecciones[0]}/>}/>
           <Route path='/taglist/' element={<TagsList collectionArray={states.colecciones}/>}/>
         </Routes>

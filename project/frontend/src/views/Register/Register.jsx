@@ -3,19 +3,19 @@ import style from './registerStyle.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 
-import { postUser } from '../../fetchLibrary';
+import { postUser } from '../../tools/controllers.mjs';
 import { useState } from 'react';
 
 function Register () {
 
     const navigate = useNavigate()
 
-    const [nombre, setNombre] = useState()
+    const [name, setName] = useState()
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
 
     function onChangeNombre (ev) {
-        setNombre(ev.target.value)
+        setName(ev.target.value)
     }
 
     function onChangeEmail (ev) {
@@ -26,8 +26,10 @@ function Register () {
         setPassword(ev.target.value)
     }
 
-    function onSubmit () {
-        postUser(nombre, email, password)
+    function onSubmit (ev) {
+        ev.preventDefault();
+
+        postUser({name, email, password})
         swal({
             title: "¡Te has registrado!",
             text: "Inicia sesión y disfruta ;)",
@@ -50,7 +52,7 @@ function Register () {
 
             <div className={style.inputsRegister}>
                 <form  onSubmit={onSubmit}>
-                    <input type="text" name="nombre" placeholder='Nombre' value={nombre} onChange={onChangeNombre}/>
+                    <input type="text" name="nombre" placeholder='Nombre' value={name} onChange={onChangeNombre}/>
                     <input type="email" name="email" placeholder='Email' value={email} onChange={onChangeEmail}/>
                     <input type="password" name="password" placeholder="Contraseña" value={password} onChange={onChangePassword} />
                     <div className={style.buttonRegister}>

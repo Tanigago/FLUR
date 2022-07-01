@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import swal from 'sweetalert'
-import { getNewCollection } from '../../fetchLibrary'
+import { getNewCollection } from '../../tools/controllers.mjs'
 import style from './newCollectionStyle.module.css'
 
 function NewCollection() {

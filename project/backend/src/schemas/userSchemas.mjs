@@ -16,5 +16,5 @@ export const userSchema = {
         }
     },
     additionalProperties: false,
-    required: [ "name", "email", "password"]
+    required: ["email", "password"]
 }

@@ -26,7 +26,7 @@ app.use("/",express.static("../frontend/build/", {index: "index.html"}))
 try {
     const jsonParser = express.json();
 
-    app.get(PATH_PREFIX + "/login/", jsonParser, loginUserController)
+    app.post(PATH_PREFIX + "/login/", jsonParser, validateUserJSON, loginUserController)
 
     app.post(PATH_PREFIX + "/user/", jsonParser, validateUserJSON, postUserController);
     app.get(PATH_PREFIX + "/user/:id", jsonParser, getUserController);

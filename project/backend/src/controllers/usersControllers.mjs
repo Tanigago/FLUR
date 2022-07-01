@@ -13,9 +13,9 @@ function decodeBasicToken(headerContent) {
 }
 
 export function loginUserController (request, response) {
-    const [ username, password ] = decodeBasicToken(req)
+    const [ name, password ] = decodeBasicToken(req)
     if ( 
-        username === user.username && password === user.password
+        name === user.name && password === user.password
     ) {
         const token = jwt.sign(
             {

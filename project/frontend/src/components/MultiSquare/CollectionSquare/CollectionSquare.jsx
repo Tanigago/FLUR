@@ -2,11 +2,9 @@ import styles from './collectionSquare.module.css';
 
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Context } from '../../../storage/Sharedtorage';
+import { Context } from '../../../services/SharedStorage';
 
 function CollectionSquare({ collection }) {
-
-    const { states } = useContext(Context);
 
     return (
         <div className={styles.bodyCollectionSquare}>

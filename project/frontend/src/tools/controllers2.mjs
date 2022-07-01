@@ -1,4 +1,4 @@
-import { HOST } from "./hostLet"
+import { HOST } from "./defines.mjs"
 
 //FETCH POST NUEVOS REGISTROS
 export async function postUser(nombre, correo, pass) {

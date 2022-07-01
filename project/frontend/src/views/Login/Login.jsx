@@ -1,30 +1,40 @@
 import style from './loginStyle.module.css';
-
+import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { getUser } from '../../fetchLibrary';
-import { useState } from 'react';
+import { logingUser } from '../../tools/controllers.mjs';
+import { changeValueFactory } from '../../tools/apptools.mjs';
+import { Context } from '../../services/SharedStorage';
+
 
 function Login() {
+    const {storage, setStorage} = useContext(Context);
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const navigate = useNavigate()
 
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const onChangeEmail = changeValueFactory(setEmail);
+    const onChangePassword = changeValueFactory(setPassword);
 
-    function onChangeEmail (ev) {
-        setEmail(ev.target.value)
-    }
 
-    function onChangePassword (ev) {
-        setPassword(ev.target.value)
-    }
-
-    function onSubmit () {
-        getUser(email, password)
-        navigate("/home/")
+    async function sendLogin(ev) {
+        ev.preventDefault();
+        
+        const user = {
+            email,
+            password
+        }
+        const response = await logingUser(user);
+        const newStorage = {...storage}
+        newStorage.states.userData = response
+        setStorage(newStorage); 
+        console.log(storage);
+        navigate("/home/");
     }
 
     return (
+
         <div className={style.bodyLogin}>
             <div className={style.textLogin}>
                 <h2>¡Hola de nuevo!</h2>
@@ -33,9 +43,9 @@ function Login() {
             </div>
 
             <div className={style.inputsLogin}>
-                <form onSubmit={onSubmit}>
-                    <input type="email" name="email" placeholder='Email' value={email} onChange={onChangeEmail}/>
-                    <input type="password" name="password" placeholder="Contraseña" value={password} onChange={onChangePassword}/>
+                <form onSubmit={sendLogin}>
+                    <input type="email" name="email" placeholder='Email' value={email} onChange={onChangeEmail} />
+                    <input type="password" name="password" placeholder="Contraseña" value={password} onChange={onChangePassword} />
                     <div className={style.buttonLogin}>
                         <button className={style.signinButton}>Inicia sesión</button>
                     </div>
@@ -45,7 +55,6 @@ function Login() {
                 </form>
             </div>
         </div>
-    )
+    );
 }
-
-export default Login
+export default Login;
