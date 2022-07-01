@@ -1,103 +1,102 @@
 import { db } from "../models/dbFLUR.mjs"
 import jwt from "jsonwebtoken";
+import { userSchema } from "../schemas/userSchemas.mjs";
 
-function decodeBasicToken(headerContent) {
-    try {
-        const [method, token] = headerContent.split(" ");
-        const tokenString = atob(token);
-        const [name, password] = tokenString.split(":");
-        return { method, name, password }
-    } catch (error) {
-        throw "Autenticación pocha";
-    }
-}
+export function loginUserController (req, res) {
 
-export function loginUserController (request, response) {
-    const [ name, password ] = decodeBasicToken(req)
-    if ( 
-        name === user.name && password === user.password
-    ) {
-        const token = jwt.sign(
-            {
-                level: user.accessLevel
-            },
-            secret,
-            {
-                expiresIn: "1h",
+    db.get(
+        `SELECT idUser, name, password, email FROM users WHERE email = ? AND ?`,
+        [req.body.email , req.body.password],
+        (err, data) => {
+            if (err) {
+                console.error(err);
+                res.sendStatus(500)
+            } else {
+                if (data === undefined) {
+                    res.sendStatus(401);
+                } else {
+                    const token = jwt.sign(
+                        {
+                            name: data.name
+                        },
+                        "secret",
+                        {
+                            expiresIn: "1h",
+                        }
+                    )
+                    res.send(token)
+                }
             }
-        )
-        res.send(token)
-    } else {
-        res.sendStatus(401)
-    }
+        },  
+    )
 }
 
-export function postUserController(request, response) {
-    const { name, password, email } = request.body;
+export function postUserController(req, res) {
+    const { name, password, email } = req.body;
     db.run(
         `INSERT INTO users(name, password, email) VALUES ("${name}", "${password}", "${email}")`,
         (err) => {
             if (err) {
                 console.error(err);
-                response.sendStatus(500)
+                res.sendStatus(500)
             } else {
-                response.sendStatus(201)
+                res.sendStatus(201)
             }
         }
     )
 }
 
-export function getUsersController(request, response) {
+export function getUsersController(req, res) {
     db.all(
         `SELECT idUser, name, password, email FROM users`,
         (err, data) => {
             if (err) {
                 console.error(err);
-                response.sendStatus(500)
+                res.sendStatus(500)
             } else {
-                response.json(data)
+                res.json(data)
             }
         }
     )
 }
 
-export function getUserController(request, response) {
+export function getUserController(req, res) {
     db.all(
-        `SELECT idUser, name, password, email FROM users WHERE idUser = ${request.params.id}`,
+        `SELECT idUser, name, password, email FROM users WHERE idUser = ${req.params.id}`,
         (err, data) => {
             if (err) {
                 console.error(err);
-                response.sendStatus(500)
+                res.sendStatus(500)
             } else {
-                response.json(data)//token
+                res.json(data)//token
             }
         }
     )
 }
 
-export function putUserController(request, response) {
+export function putUserController(req, res) {
     db.run(
-        `UPDATE users SET name = "${request.body.name}", email ="${request.body.email}" WHERE idUser = ${request.body.id}`,
+        `UPDATE users SET name = "${req.body.name}", email ="${req.body.email}" WHERE idUser = ${req.body.id}`,
         (err) => {
             if (err) {
                 console.error(err);
-                response.sendStatus(500)
+                res.sendStatus(500)
             } else {
-                response.sendStatus(200)
+                res.sendStatus(200)
             }
         }
     )
 }
 
-export function deleteUserController(request, response) {
+export function deleteUserController(req, res) {
     db.run(
-        `DELETE FROM users WHERE idUser =`+request.body.id,
+        `DELETE FROM users WHERE idUser =`+req.body.id,
         (err) => {
             if (err) {
                 console.error(err);
-                response.sendStatus(500)
+                res.sendStatus(500)
             } else {
-                response.sendStatus(200)
+                res.sendStatus(200)
             }
         }
     )
