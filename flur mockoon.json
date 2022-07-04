@@ -1,6 +1,6 @@
 {
   "uuid": "30d440ea-09bc-4106-acf7-6d12fca24762",
-  "lastMigration": 19,
+  "lastMigration": 20,
   "name": "FLUR API (copy)",
   "endpointPrefix": "",
   "latency": 0,
@@ -25,7 +25,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -50,7 +51,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -75,7 +77,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -100,7 +103,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -125,7 +129,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -150,7 +155,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -175,7 +181,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -200,7 +207,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -225,7 +233,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -250,7 +259,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -275,7 +285,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -300,7 +311,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -325,7 +337,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -350,7 +363,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -375,7 +389,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,
@@ -400,7 +415,8 @@
           "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
-          "fallbackTo404": false
+          "fallbackTo404": false,
+          "default": true
         }
       ],
       "enabled": true,

@@ -41,12 +41,12 @@ function App() {
           <Link to={"/today/"}><button>Today</button></Link>
           <Link to={"/collections/"}><button>Collections</button></Link>
           <Link to={"/collection/"}><button>Collection</button></Link>
-          <Link to={"/collectionhorlist/"}><button>Collection Horizontal List</button></Link>
           <Link to={"/addtocollection/"}><button>AddtoCollection</button></Link>
           <Link to={"/editCollection/"}><button>EditCollection</button></Link>
           <Link to={"/newCollection/"}><button>NewCollection</button></Link>
           <Link to={"/editItem/"}><button>EditItem</button></Link>
           <Link to={"/profile/"}><button>Profile</button></Link>
+          <Link to={"/collectionhorlist/"}><button>Collection Horizontal List</button></Link>
           <Link to={"/tag/"}><button>Tag</button></Link>
           <Link to={"/taglist/"}><button>TagList</button></Link>
         </nav>
@@ -61,17 +61,16 @@ function App() {
           <Route path='/today/' element={<Today tagsArray={states.colecciones}/>}/>
           <Route path='/collections/' element={<Collections collectionArray={states.colecciones}/>}/>
           <Route path='/collection/:id' element={<Collection/>}/>
-          <Route path='/collectionhorlist/' element={<CollectionHorList collectionArray={states.colecciones}/>}/> 
           <Route path='/addtocollection/' element={<AddtoCollection  collectionArray={states.colecciones}/>}/>
           <Route path='/editCollection/' element={<EditCollection/>}/>
           <Route path='/newCollection/' element={<NewCollection/>}/>
           <Route path='/editItem/' element={<EditItem tagsArray={states.colecciones}/>}/>
           <Route path='/profile/' element={<Profile user={states.userData[0]}/>}/>
+          <Route path='/collectionhorlist/' element={<CollectionHorList collectionArray={states.colecciones}/>}/> 
           <Route path='/tag/' element={<Tag coleccion={states.colecciones[0]}/>}/>
           <Route path='/taglist/' element={<TagsList collectionArray={states.colecciones}/>}/>
         </Routes>
 
-        <MenuBottom/>
       </div>
     </div>
   );

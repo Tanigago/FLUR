@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import swal from 'sweetalert'
+import MenuBottom from '../../components/MenuBottom/MenuBottom.jsx'
+import MenuTop from '../../components/MenuTop/MenuTop.jsx'
 import { getNewCollection } from '../../tools/controllers.mjs'
 import style from './newCollectionStyle.module.css'
 
@@ -35,11 +37,12 @@ function NewCollection() {
             text: "Nueva colección creada",
             icon: "success",
         });
-        //navigate(`/collection/${collection.id}`)
+        Navigate(`/collection/${collection.id}`)
     };
 
     return (
         <>
+            <MenuTop insitu={"Nueva colección"}/>
             <form onSubmit={formSubmit}>
                 <h2>Nombre de colección
                     <input type="text" name="nombre" size="40" value={nombreColeccion} onChange={onChangeNombreColeccion} />
@@ -114,6 +117,7 @@ function NewCollection() {
                     </Link>
                 </div>
             </form>
+            <MenuBottom/>
         </>
     )
 }
