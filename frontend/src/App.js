@@ -52,7 +52,6 @@ function App() {
         </nav>
       </header>
       <div >
-        <MenuTop insitu={"Verano"}/>
 
         <Routes>
           <Route path='/start/' element={<Start/>}/>

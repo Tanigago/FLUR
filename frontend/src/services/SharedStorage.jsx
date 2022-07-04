@@ -25,7 +25,7 @@ export function ContextProvider({ children }) {
         {
             name: "",
             email: "",
-            password: ""
+            token: ""
         }
     ]);
 

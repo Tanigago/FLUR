@@ -4,7 +4,7 @@ import { db } from "../models/dbFLUR.mjs"
 export function postCollectionController (request, response) {
     const { userId, collectionShoesId, nameCollection, waterprooflvl, warmlvl, season } = request.body;
     db.run(
-        `INSERT INTO collection(userId, collectionShoesId, nameCollection, waterprooflvl, warmlvl, season) VALUES (?, ?,?,?,?,?)`,
+        `INSERT INTO collection(userId, collectionShoesId, nameCollection, waterprooflvl, warmlvl, season) VALUES (?,?,?,?,?,?)`,
         [userId, collectionShoesId, nameCollection, waterprooflvl, warmlvl, season],
         (err)=>{
             if (err) {

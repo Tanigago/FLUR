@@ -5,7 +5,7 @@ import { userSchema } from "../schemas/userSchemas.mjs";
 export function loginUserController (req, res) {
 
     db.get(
-        `SELECT idUser, name, password, email FROM users WHERE email = ? AND ?`,
+        `SELECT idUser, name, password, email FROM users WHERE email = ? AND password = ?`,
         [req.body.email , req.body.password],
         (err, data) => {
             if (err) {
@@ -24,7 +24,11 @@ export function loginUserController (req, res) {
                             expiresIn: "1h",
                         }
                     )
-                    res.json(token)
+                    res.json({
+                        name: data.name,
+                        email: data.email,
+                        token: token
+                    })
                 }
             }
         },  

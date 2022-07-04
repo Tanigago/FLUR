@@ -34,7 +34,7 @@ export const collectionSchema = {
 
     },
     additionalProperties: false,
-    required: ["userId", "collectionShoesId", "nameCollection", "waterprooflvl", "warmlvl", "season"]
+    required: ["nameCollection", "waterprooflvl", "warmlvl", "season"]
 }
 
 export const putCollectionSchema = {

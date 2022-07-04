@@ -18,14 +18,14 @@ function Login() {
     const onChangePassword = changeValueFactory(setPassword);
 
 
-    async function sendLogin(ev, userData) {
+    async function sendLogin(ev) {
         ev.preventDefault();
         
         const user = {
             email,
             password
         }
-        const response = await logingUser(user);
+        const userData = await logingUser(user);
         actions.updateUserData(userData);
         console.log(states);
         navigate("/home/");
