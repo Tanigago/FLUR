@@ -11,19 +11,19 @@ function NewCollection() {
     const [waterproofLvl, setWaterproofLvl] = useState("low")
     const [seasonLvl, setSeasonLvl] = useState("spring")
 
-    const onValueChange = e => {
-        setWarmLvl(e.target.value)
+    function onValueChange (ev) {
+        setWarmLvl(ev.target.value)
     }
 
-    const onOptionChange = e => {
-        setWaterproofLvl(e.target.value)
+    function onOptionChange (ev) {
+        setWaterproofLvl(ev.target.value)
     }
 
-    const onCheckChange = e => {
-        setSeasonLvl(e.target.value)
+    function onCheckChange (ev) {
+        setSeasonLvl(ev.target.value)
     }
 
-    function onChangeNombreColeccion(ev) {
+    function onChangeNombreColeccion (ev) {
         setNombreColeccion(ev.target.value)
     };
 
@@ -32,7 +32,7 @@ function NewCollection() {
         const collection = await getNewCollection(nombre, warm, waterproof, season)
         swal({
             title: "¡Genial!",
-            text: "Inicia sesión y disfruta ;)",
+            text: "Nueva colección creada",
             icon: "success",
         });
         //navigate(`/collection/${collection.id}`)

@@ -7,7 +7,7 @@ import { Context } from '../../services/SharedStorage';
 
 
 function Login() {
-    const {storage, setStorage} = useContext(Context);
+    const {states, actions} = useContext(Context);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -26,10 +26,10 @@ function Login() {
             password
         }
         const response = await logingUser(user);
-        const newStorage = {...storage}
+        const newStorage = {...states}
         newStorage.states.userData = response
-        setStorage(newStorage); 
-        console.log(storage);
+        actions(newStorage); 
+        console.log(states);
         navigate("/home/");
     }
 

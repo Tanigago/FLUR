@@ -13,13 +13,6 @@ const PATH_PREFIX = "/api/v0.0"
 const app = express();
 
 if (process.env.NODE_ENV !== "production") config()
-/*
-const s3 = new aws.S3({
-    apiVersion: process.env.S3_API_VERSION,
-    endpoint: process.env.S3_ENDPOINT,
-    signatureVersion: process.env.S3_SIGNATURE_VERSION,
-})
-*/
 
 app.use("/",express.static("../frontend/build/", {index: "index.html"}))
 
@@ -81,7 +74,7 @@ try {
    
     app.get(PATH_PREFIX + "/images/:imgId", authMiddleware);
 
-    app.listen(process.env.PORT || 4001, () => {
+    app.listen(process.env.PORT || 4000, () => {
         console.log("Express running...");
     });
 

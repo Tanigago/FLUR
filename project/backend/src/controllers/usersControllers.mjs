@@ -24,7 +24,7 @@ export function loginUserController (req, res) {
                             expiresIn: "1h",
                         }
                     )
-                    res.send(token)
+                    res.json(token)
                 }
             }
         },  

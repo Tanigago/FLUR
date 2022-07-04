@@ -31,7 +31,7 @@ function Register () {
 
         postUser({name, email, password})
         swal({
-            title: "¡Te has registrado!",
+            title: "¡Registro completado!",
             text: "Inicia sesión y disfruta ;)",
             icon: "success",
         });
