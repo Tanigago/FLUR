@@ -49,7 +49,6 @@ function NewCollection() {
                 </h2>
 
                 <h2>Características</h2>
-
                 <h4>Nivel de abrigo:</h4>
                 <div className={style.inputwarm}>
                     <input id="warm-low" type="radio" name="warm" value="low"

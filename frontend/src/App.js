@@ -17,8 +17,6 @@ import Profile from './views/Profile/Profile';
 import Register from './views/Register/Register';
 import Start from './views/Start/Start';
 import Today from './views/Today/Today';
-import MenuBottom from './components/MenuBottom/MenuBottom';
-import MenuTop from './components/MenuTop/MenuTop';
 import TagsList from './components/tagsList/TagsList';
 import Tag from './components/Tag/Tag';
 

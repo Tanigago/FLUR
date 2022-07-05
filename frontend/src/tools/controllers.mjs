@@ -43,19 +43,19 @@ export async function logingUser(data) {
 //FETCH POST PARA NUEVA COLECCIÓN
 export async function getNewCollection(nombre, warm, waterproof, season) {
     const response = await fetch(
-        HOST + '/api/v0.0/collection/',
-         {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(
-            {
-                nameCollection: nombre,
-                warmlvl: warm,
-                waterprooflvl: waterproof,
-                season: season
-            })
+        HOST + '/api/v0.0/collection/:id',
+        {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(
+                {
+                    nameCollection: nombre,
+                    warmlvl: warm,
+                    waterprooflvl: waterproof,
+                    season: season
+                })
         })
     return await response.json()
 };
